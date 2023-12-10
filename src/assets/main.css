@@ -1,0 +1,21 @@
+:root {
+  --black: #323232;
+  --white: #faf6f1;
+  --orange: #ffa500;
+  --gray: #8e959e;
+  --light-gray: #cbcbcb;
+  --font-text: 'Oswald', sans-serif; 
+}
+*, ::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-text);
+  color: var(--black);
+}
