@@ -1,4 +1,11 @@
-<script setup lang="ts">
+<script setup>
+import { defineProps } from 'vue'
+defineProps({
+    currentTextColor: {
+        type: String,
+        required: true
+    }
+})
 const linksList = [
     {
         name: 'LinkedIn',
@@ -39,6 +46,7 @@ const linksList = [
     display: flex;
     justify-content: left;
     align-items: center;
+    mix-blend-mode: difference;
 }
 
 .links-container {
@@ -54,7 +62,7 @@ li {
 
 a {
     text-decoration: none;
-    color: var(--black);
+    color: var(--white);
     font-size: 16px;
     font-weight: 200;
 }

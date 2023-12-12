@@ -1,8 +1,8 @@
 <script setup>
 </script>
 <template>
-    <div id="work" class="work">
-        <h1>Work</h1>
+    <div class="work">
+        <h1>Work 2</h1>
     </div>
 </template>
 
@@ -11,7 +11,7 @@
 .work {
     width: 100%;
     height: 100vh;
-    /* background-color: var(--white); */
+    background-color: var(--black);
     display: flex;
     justify-content: center;
     align-items: center;

@@ -2,17 +2,18 @@
 const navList = [
     {
         name: 'About',
-        link: '#about'
+        link: 'about'
     },
     {
         name: 'Work',
-        link: '#work'
+        link: 'work'
     },
     {
         name: 'Contact',
-        link: '#contact'
+        link: 'contact'
     }
 ]
+
 </script>
 
 <template>
@@ -27,7 +28,7 @@ const navList = [
         <nav>
             <ul>
                 <li v-for="nav in navList" :key="nav.name">
-                    <a :href="nav.link">{{ nav.name }}</a>
+                    <p class="nav-links" @click="$emit('moveTo', nav.link, 0)">{{ nav.name }}</p>
                     <span class="link-underline"></span>
                 </li>
             </ul>
@@ -45,7 +46,7 @@ const navList = [
     align-items: left;
     /* background-color: violet; */
     /* padding: 400px 200px; */
-    padding: 200px 100px;
+    padding: 200px 400px;
     /* gap: 140px */
     gap: 80px;
 }
@@ -86,24 +87,23 @@ nav ul {
 }
 
 nav ul li {
+    height: fit-content;
     list-style: none;
     position: relative;
     padding: 0px 2px;
 }
 
-nav ul li a {
+.nav-links {
     position: relative;
-    text-decoration: none;
-    color: #373737;
+    color: var(--black);
     font-size: 24px;
     font-weight: 200;
-    padding: 4px 0px;
     z-index: 10;
 }
 
 .link-underline {
     position: absolute;
-    bottom: 2px;
+    bottom: 4px;
     left: 0;
     width: 100%;
     height: 8px;
@@ -112,7 +112,7 @@ nav ul li a {
 }
 
 nav ul li:hover .link-underline {
-    height: 90%;
+    height: 80%;
     transition: all 0.3s ease-in-out;
 }
 </style>

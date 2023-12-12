@@ -1,17 +1,52 @@
+<script setup>
+import { defineProps } from 'vue';
+
+const props = defineProps({
+    currentAnchor: {
+        type: String,
+        required: true
+    },
+    currentTextColor: {
+        type: String,
+        required: true
+    }
+})
+const getCurrentCubeColor = (link) => {
+    if (props.currentAnchor === link) {
+        return 'var(--black)'
+    }
+    return 'var(--white)'
+}
+const navList = [
+    {
+        name: 'Home',
+        link: 'home',
+    },
+    {
+        name: 'About',
+        link: 'about',
+    },
+    {
+        name: 'Work',
+        link: 'work',
+    },
+    {
+        name: 'Contact',
+        link: 'contact',
+    }
+]
+</script>
+
 <template>
     <div class="right-side">
-
-        <div class="cube-container">
-            <span class="cube"></span>
-            <span class="cube"></span>
-            <span class="cube"></span>
-            <span class="cube"></span>
-        </div>
+        <ul class="cube-container">
+            <li :style="{ backgroundColor: getCurrentCubeColor(nav.link) }" class="cube"
+                @click="$emit('moveTo', nav.link, 0)" v-for="nav in navList" :key="nav.name">
+            </li>
+        </ul>
 
         <span class="line"></span>
-
-        <p>Home</p>
-
+        <p>{{ props.currentAnchor }}</p>
     </div>
 </template>
 
@@ -26,24 +61,28 @@
     flex-direction: column;
     justify-content: end;
     align-items: center;
-    gap: 20px
+    mix-blend-mode: difference;
 }
 
 .right-side p {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
-    color: var(--black);
     font-weight: 200;
     font-size: 16px;
+    min-height: 50px;
+    color: var(--white);
+    z-index: 10;
 }
 
 .line {
     width: 1px;
     height: 20%;
-    background-color: var(--black);
+    background-color: var(--white);
+    margin-top: 20px;
 }
 
 .cube-container {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -51,13 +90,9 @@
     gap: 20px;
 }
 
-.cube:first-child {
-    background-color: var(--orange);
-}
-
 .cube {
     width: 6px;
     height: 6px;
-    background-color: var(--light-gray);
+    cursor: pointer;
 }
 </style>

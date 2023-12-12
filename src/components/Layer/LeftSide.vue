@@ -1,3 +1,15 @@
+<script setup>
+import { defineProps } from 'vue';
+
+defineProps({
+    currentTextColor: {
+        type: String,
+        required: true,
+    },
+});
+</script>
+
+
 <template>
     <div class="left-side">
         <span class="line"></span>
@@ -19,21 +31,20 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
+    mix-blend-mode: difference;
 }
 
 .left-side p {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
-    color: white;
     font-weight: 200;
     font-size: 16px;
-    mix-blend-mode: difference;
-    color: var(--black);
+    color: var(--white);
 }
 
 .line {
     width: 1px;
     height: 35%;
-    background-color: var(--black);
+    background-color: var(--white);
 }
 </style>
