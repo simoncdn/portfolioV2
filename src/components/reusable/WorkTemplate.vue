@@ -2,6 +2,7 @@
 import SectionTitle from '@/components/reusable/SectionTitle.vue';
 import Badge from '@/components/reusable/Badge.vue'
 import { defineProps } from 'vue';
+import { ArrowUpRightIcon } from "@heroicons/vue/24/solid"
 
 defineProps({
     name: {
@@ -39,7 +40,12 @@ defineProps({
             <div class="work-description">
                 <span class="work-date">{{ date }}</span>
                 <p class="description">{{ description }}</p>
-                <a :href="link" class="work-link">View site</a>
+                <a :href="link" class="work-link">
+                    <span>
+                        View site
+                    </span>
+                    <ArrowUpRightIcon class="work-link-icon" />
+                </a>
             </div>
 
             <div class="hard-skills-container">
@@ -111,6 +117,19 @@ defineProps({
     font-size: 16px;
     font-weight: 400;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+.work-link:hover {
+    text-decoration: underline;
+}
+
+.work-link-icon {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: end;
 }
 
 .hard-skills-container {
