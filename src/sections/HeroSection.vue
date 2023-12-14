@@ -67,14 +67,14 @@ const navList = [
 h1 {
     font-size: 128px;
     font-weight: 600;
-    color: #FFA500;
+    color: var(--orange);
     line-height: 0.87;
 }
 
 p {
     font-size: 24px;
-    font-weight: 200;
-    color: #323232;
+    font-weight: 400;
+    color: var(--gray);
 }
 
 nav {
@@ -107,7 +107,7 @@ nav ul li {
     left: 0;
     width: 100%;
     height: 8px;
-    background-color: #FFA500;
+    background-color: var(--orange);
     transition: all 0.3s ease-in-out;
 }
 

@@ -23,8 +23,8 @@ defineProps({
 }
 
 .badge-text {
-    color: #FFFFFF;
+    color: var(--white);
     font-size: 16px;
-    font-weight: 200;
+    font-weight: 400;
 }
 </style>

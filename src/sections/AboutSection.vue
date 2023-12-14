@@ -68,7 +68,7 @@ const librariesList = ["Tailwind", "Styled-Component", "Zustand", "React-Query",
     justify-content: space-between;
     align-items: center;
     padding: 200px 400px;
-    gap: 200px
+    gap: 200px;
 }
 
 .about-left-part {
@@ -109,8 +109,14 @@ const librariesList = ["Tailwind", "Styled-Component", "Zustand", "React-Query",
 }
 
 h4 {
-    color: #FaF6f1;
+    color: var(--white);
     font-size: 20px;
+    font-weight: 600;
+}
+
+h3 {
+    color: var(--white);
+    font-size: 24px;
     font-weight: 600;
 }
 
@@ -121,9 +127,9 @@ h4 {
 }
 
 .description-container p {
-    color: #Faf6f1;
+    color: var(--white);
     font-size: 16px;
-    font-weight: 200;
+    font-weight: 400;
 }
 
 .hard-skills-container {

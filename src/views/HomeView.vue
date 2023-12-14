@@ -77,8 +77,9 @@ observer.observe(body, options);
           <Work />
         </div>
         <div v-for="work in worksInfo" :key="work.name" class="slide" data-anchor="slide2">
-          <WorkTemplate :name="work.name" :date="work.date" :description="work.description" :link="work.url"
-            :languages-list="work.laguages" :libraries-list="work.tools" />
+          <WorkTemplate :name="work.name" :date="work.date" :description="work.description"
+            :sub-description="work.subdescription" :link="work.url" :languages-list="work.laguages"
+            :libraries-list="work.tools" />
         </div>
       </div>
       <div class=" section">

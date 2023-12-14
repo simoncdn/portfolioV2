@@ -17,6 +17,9 @@ defineProps({
         type: String,
         required: true
     },
+    subDescription: {
+        type: String,
+    },
     link: {
         type: String,
         required: true
@@ -40,6 +43,7 @@ defineProps({
             <div class="work-description">
                 <span class="work-date">{{ date }}</span>
                 <p class="description">{{ description }}</p>
+                <p v-if="subDescription" class="sub-description">{{ subDescription }}</p>
                 <a :href="link" class="work-link">
                     <span>
                         View site
@@ -111,6 +115,11 @@ defineProps({
     font-size: 16px;
     font-weight: 400;
 }
+.sub-description {
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 600;
+}
 
 .work-link {
     color: var(--white);
@@ -121,6 +130,7 @@ defineProps({
     align-items: center;
     gap: 2px;
 }
+
 .work-link:hover {
     text-decoration: underline;
 }
