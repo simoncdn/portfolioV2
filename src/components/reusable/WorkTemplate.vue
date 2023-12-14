@@ -1,24 +1,45 @@
 <script setup>
 import SectionTitle from '@/components/reusable/SectionTitle.vue';
 import Badge from '@/components/reusable/Badge.vue'
+import { defineProps } from 'vue';
 
-const languagesList = ["Next.js", "TypeScript"]
-const librariesList = ["Tailwind", "Zustand", "React-Query", "Zod", "React-hook-form", "Git", "Figma"]
+defineProps({
+    name: {
+        type: String,
+        required: true
+    },
+    date: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    link: {
+        type: String,
+        required: true
+    },
+    languagesList: {
+        type: Array[String],
+        required: true
+    },
+    librariesList: {
+        type: Array[String],
+        required: true
+    }
+})
 </script>
 
 <template>
     <div class="work">
-        <SectionTitle label="Forma" color="var(--white)" />
+        <SectionTitle :label="name" color="var(--white)" />
 
         <div class="work-content">
             <div class="work-description">
-                <span class="work-date">2023</span>
-                <p class="description">Forma is an elegantly designed SaaS solution for legal and accounting professionals.
-                    This innovative platform facilitates the creation and monitoring of administrative formalities, while
-                    offering a wide range of additional features. Among these are the ability to interact with clients
-                    through an messaging system, securely exchange and validate documents, as well as schedule tasks with
-                    convenient reminders, thus optimizing time management and organizational efficiency.</p>
-                <a href="" class="work-link">View site</a>
+                <span class="work-date">{{ date }}</span>
+                <p class="description">{{ description }}</p>
+                <a :href="link" class="work-link">View site</a>
             </div>
 
             <div class="hard-skills-container">

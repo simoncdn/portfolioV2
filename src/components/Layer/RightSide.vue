@@ -41,7 +41,7 @@ const navList = [
     <div class="right-side">
         <ul class="cube-container">
             <li :style="{ backgroundColor: getCurrentCubeColor(nav.link) }" class="cube"
-                @click="$emit('moveTo', nav.link, 0)" v-for="nav in navList" :key="nav.name">
+                @click="$emit('onClick', nav.link, 0)" v-for="nav in navList" :key="nav.name">
             </li>
         </ul>
 

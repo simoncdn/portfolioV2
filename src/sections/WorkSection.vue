@@ -1,5 +1,5 @@
 <script setup>
-import SectionTitle from '../reusable/SectionTitle.vue';
+import SectionTitle from '@/components/reusable/SectionTitle.vue';
 
 const works = [
     {

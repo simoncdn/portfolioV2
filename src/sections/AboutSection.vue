@@ -1,6 +1,6 @@
 <script setup>
+import SectionTitle from '@/components/reusable/SectionTitle.vue';
 import Badge from '@/components/reusable/Badge.vue'
-import SectionTitle from './reusable/SectionTitle.vue';
 
 const languagesList = ["JavaScript", "TypeScript", "React.js", "Next.js"]
 const librariesList = ["Tailwind", "Styled-Component", "Zustand", "React-Query", "Jest", "React Testing Library", "Git", "Figma", "Nvim"]

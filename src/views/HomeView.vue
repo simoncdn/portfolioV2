@@ -1,14 +1,15 @@
 <script setup>
-import Hero from '@/components/Hero.vue'
-import Work from '@/components/Work/Work.vue';
-import About from '@/components/About.vue';
-import Contact from '@/components/Contact.vue';
+import Hero from '@/sections/HeroSection.vue';
+import About from '@/sections/AboutSection.vue';
+import Work from '@/sections/WorkSection.vue';
+import Contact from '@/sections/ContactSection.vue';
 import RightSide from '@/components/Layer/RightSide.vue';
 import LeftSide from '@/components/Layer/LeftSide.vue';
 import Footer from '@/components/Layer/Footer.vue';
+import WorkTemplate from '@/components/reusable/WorkTemplate.vue';
 import { ref } from 'vue';
-import Work1 from '@/components/Work/works/Work1.vue';
-import Work2 from '@/components/Work/works/Work2.vue';
+import { worksInfo } from '../utils/works-info'
+import * as helper from '../utils/helper'
 
 const licenseKey = import.meta.env.VITE_LICENSE_KEY;
 
@@ -17,7 +18,7 @@ const currentAnchor = ref('');
 const currentTextColor = ref('var(--black)');
 const currentIndex = ref('');
 
-const onSlideLeave = (section, origin) => {
+const onSlideLeave = (_section, origin) => {
   currentIndex.value = origin
 }
 const options = {
@@ -43,44 +44,30 @@ const options = {
   onSlideLeave,
 }
 
-const moveTo = (sectionName, numberOfPage) => {
-  fullpage.value.api.moveTo(sectionName, numberOfPage);
+const handleMoveToSection = (sectionName, pageNumber) => {
+  fullpage.value.api.moveTo(sectionName, pageNumber);
 }
-const getCurrentTextColor = (anchor) => {
-  switch (anchor) {
-    case 'home':
-      return 'var(--black)';
-    case 'about':
-      return 'var(--white)';
-    case 'work':
-      return 'var(--black)';
-    case 'contact':
-      return 'var(--black)';
-    default:
-      return 'var(--black)';
-  }
-}
+
 const callback = () => {
   const anchorFind = fullpage.value.api.getActiveSection().anchor;
   if (anchorFind) {
     currentAnchor.value = anchorFind;
-    currentTextColor.value = getCurrentTextColor(anchorFind);
+    currentTextColor.value = helper.getCurrentTextColor(anchorFind);
   }
 }
 const body = document.querySelector('body');
 const observer = new MutationObserver(callback)
 observer.observe(body, options);
-
 </script>
 
 <template>
   <div>
     <full-page id="fullpage" ref="fullpage" :options="options">
       <LeftSide :currentTextColor="currentTextColor" />
-      <RightSide @moveTo="moveTo" :current-anchor="currentAnchor" :currentTextColor="currentTextColor" />
+      <RightSide @onClick="handleMoveToSection" :current-anchor="currentAnchor" :currentTextColor="currentTextColor" />
       <Footer :currentTextColor="currentTextColor" />
       <div class="section">
-        <Hero @moveTo="moveTo" />
+        <Hero @moveTo="handleMoveToSection" />
       </div>
       <div class="section">
         <About />
@@ -89,14 +76,12 @@ observer.observe(body, options);
         <div class="slide" data-anchor="slide1">
           <Work />
         </div>
-        <div class="slide" data-anchor="slide2">
-          <Work1 />
-        </div>
-        <div class="slide" data-anchor="slide2">
-          <Work2 />
+        <div v-for="work in worksInfo" :key="work.name" class="slide" data-anchor="slide2">
+          <WorkTemplate :name="work.name" :date="work.date" :description="work.description" :link="work.url"
+            :languages-list="work.laguages" :libraries-list="work.tools" />
         </div>
       </div>
-      <div class="section">
+      <div class=" section">
         <Contact />
       </div>
     </full-page>
