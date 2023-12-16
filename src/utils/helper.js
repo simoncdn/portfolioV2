@@ -1,4 +1,4 @@
-export const getCurrentTextColor = (sectionAnchor) => {
+export function getCurrentTextColor(sectionAnchor) {
   switch (sectionAnchor) {
     case 'home':
       return 'var(--black)'

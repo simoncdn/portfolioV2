@@ -3,13 +3,16 @@ import SectionTitle from '@/components/reusable/SectionTitle.vue';
 
 const works = [
     {
+        index: 1,
         name: 'Forma',
     },
     {
-        name: 'Workshopbya',
+        index: 2,
+        name: 'Crazee-Burger',
     },
     {
-        name: 'Crazee-Burger',
+        index: 3,
+        name: 'Workshopbya',
     },
 ]
 </script>
@@ -18,7 +21,7 @@ const works = [
         <SectionTitle label="Work" />
 
         <ul>
-            <li v-for="work in works" :key="work.name">{{ work.name }}</li>
+            <li v-for="work in works" :key="work.name" @click="$emit('moveTo', 'work', work.index)">{{ work.name }}</li>
         </ul>
     </div>
 </template>

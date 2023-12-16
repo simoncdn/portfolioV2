@@ -11,18 +11,16 @@ import { ref } from 'vue';
 import { worksInfo } from '../utils/works-info'
 import * as helper from '../utils/helper'
 
-const licenseKey = import.meta.env.VITE_LICENSE_KEY;
-
 const fullpage = ref(null);
 const currentAnchor = ref('');
 const currentTextColor = ref('var(--black)');
 const currentIndex = ref('');
 
-const onSlideLeave = (_section, origin) => {
-  currentIndex.value = origin
-}
+const licenseKey = import.meta.env.VITE_LICENSE_KEY;
+const scrollHorizontallyKey = import.meta.env.VITE_SCROLL_HORIZONTALLY_KEY;
 const options = {
   licenseKey,
+  scrollHorizontallyKey,
   menu: '#menu',
   observer: true,
   attributes: true,
@@ -35,7 +33,6 @@ const options = {
   fitToSectionDelay: 1000,
   autoscrolling: true,
   scrollHorizontally: true,
-  scrollHorizontallyKey: 'ZHZscHIucHJvX0VPemMyTnliMnhzU0c5eWFYcHZiblJoYkd4NWJ0Qw==',
   easing: 'easeInOutCubic',
   easingcss3: 'cubic-bezier(0.88,0,0.265,1)',
   dragAndMove: true,
@@ -44,19 +41,22 @@ const options = {
   onSlideLeave,
 }
 
-const handleMoveToSection = (sectionName, pageNumber) => {
-  fullpage.value.api.moveTo(sectionName, pageNumber);
+function onSlideLeave(_section, origin) {
+  currentIndex.value = origin
 }
-
-const callback = () => {
+function handleMoveTo(sectionName, slideNumber) {
+  fullpage.value.api.moveTo(sectionName, slideNumber);
+}
+const makeActionsOnScroll = () => {
   const anchorFind = fullpage.value.api.getActiveSection().anchor;
   if (anchorFind) {
     currentAnchor.value = anchorFind;
     currentTextColor.value = helper.getCurrentTextColor(anchorFind);
   }
 }
+
 const body = document.querySelector('body');
-const observer = new MutationObserver(callback)
+const observer = new MutationObserver(makeActionsOnScroll)
 observer.observe(body, options);
 </script>
 
@@ -64,17 +64,17 @@ observer.observe(body, options);
   <div>
     <full-page id="fullpage" ref="fullpage" :options="options">
       <LeftSide :currentTextColor="currentTextColor" />
-      <RightSide @onClick="handleMoveToSection" :current-anchor="currentAnchor" :currentTextColor="currentTextColor" />
+      <RightSide @moveTo="handleMoveTo" :current-anchor="currentAnchor" :currentTextColor="currentTextColor" />
       <Footer :currentTextColor="currentTextColor" />
       <div class="section">
-        <Hero @moveTo="handleMoveToSection" />
+        <Hero @moveTo="handleMoveTo" />
       </div>
       <div class="section">
         <About />
       </div>
       <div class="section">
         <div class="slide" data-anchor="slide1">
-          <Work />
+          <Work @moveTo="handleMoveTo" />
         </div>
         <div v-for="work in worksInfo" :key="work.name" class="slide" data-anchor="slide2">
           <WorkTemplate :name="work.name" :date="work.date" :description="work.description"

@@ -1,5 +1,5 @@
 import './assets/main.css'
-import './fullpage.scrollHorizontally.min' // Optional. When using fullpage extensions
+import './utils/fullpage.scrollHorizontally.min' // Optional. When using fullpage extensions
 import 'vue-fullpage.js/dist/style.css'
 
 import { createApp } from 'vue'
