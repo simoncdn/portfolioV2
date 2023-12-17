@@ -28,8 +28,8 @@ import SectionTitle from '@/components/reusable/SectionTitle.vue';
     height: 100vh;
     display: flex;
     flex-direction: column;
-    padding: 200px 400px;
-    gap: 200px;
+    padding: var(--padding-section);
+    gap: var(--gap-section);
 }
 
 .content {
@@ -43,6 +43,7 @@ import SectionTitle from '@/components/reusable/SectionTitle.vue';
     flex-direction: column;
     gap: 32px;
 }
+
 .description {
     display: flex;
     flex-direction: column;
@@ -55,5 +56,21 @@ import SectionTitle from '@/components/reusable/SectionTitle.vue';
     font-size: 32px;
     font-weight: 400;
     color: var(--black);
+}
+
+@media (max-width: 768px) {
+    .description {
+        font-size: 18px;
+    }
+
+    .mail-address {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 475px) {
+    .content {
+        flex-direction: column;
+    }
 }
 </style>

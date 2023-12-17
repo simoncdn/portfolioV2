@@ -95,4 +95,19 @@ const navList = [
     height: 6px;
     cursor: pointer;
 }
+
+@media (max-width: 768px) {
+    .right-side p {
+        font-size: 12px;
+        min-height: 40px;
+    }
+
+    .cube-container{
+        gap: 10px;
+    }
+    .cube{
+        width: 4px;
+        height: 4px;
+    }
+}
 </style>

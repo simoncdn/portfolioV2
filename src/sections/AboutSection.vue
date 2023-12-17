@@ -67,8 +67,8 @@ const librariesList = ["Tailwind", "Styled-Component", "Zustand", "React-Query",
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 200px 400px;
-    gap: 200px;
+    gap: var(--gap-section);
+    padding: var(--padding-section);
 }
 
 .about-left-part {
@@ -150,5 +150,35 @@ h3 {
 .languages-list li {
     list-style: none;
     white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+    }
+
+    .about-left-part {
+        display: none;
+    }
+
+    .about-right-part {
+        width: 100%;
+        padding: 0px;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .description-container p, .about-subtitle h4 {
+        font-size: 14px;
+    }
+
+    .hard-skills-container {
+        width: 100%;
+        gap: 45px;
+    }
+
+    .hard-skills-container h3 {
+        font-size: 20px;
+    }
 }
 </style>

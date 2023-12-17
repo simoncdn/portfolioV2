@@ -48,4 +48,31 @@ h2 {
     height: 50px;
     background-color: var(--orange);
 }
+
+@media (max-width: 768px) {
+    .title {
+        padding: 0px 10px;
+    }
+    h2 {
+        font-size: 64px;
+    }
+
+    .title-underline {
+        height: 30px;
+        bottom: 10px;
+    }
+}
+@media (max-width: 475px) {
+    .title {
+        padding: 0px 10px;
+    }
+    h2 {
+        font-size: 48px;
+    }
+
+    .title-underline {
+        height: 20px;
+        bottom: 8px;
+    }
+}
 </style>

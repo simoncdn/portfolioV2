@@ -5,6 +5,8 @@
   --gray: #8e959e;
   --light-gray: #cbcbcb;
   --font-text: 'Oswald', sans-serif; 
+  --padding-section: 200px 400px;
+  --gap-section: 100px;
 }
 *, ::before,
 ::after {
@@ -17,4 +19,21 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: var(--font-text);
+}
+
+@media screen and (max-width: 1024px) {
+  :root {
+    --padding-section: 100px 200px;
+  }
+}
+@media screen and (max-width: 768px) {
+  :root {
+    --padding-section: 60px 80px;
+    --gap-section: 100px;
+  }
+}
+@media screen and (max-width: 475px) {
+  :root {
+    --padding-section: 20px 40px;
+  }
 }

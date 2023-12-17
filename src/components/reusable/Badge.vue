@@ -27,4 +27,10 @@ defineProps({
     font-size: 16px;
     font-weight: 400;
 }
+
+@media (max-width: 768px) {
+    .badge-text {
+        font-size: 14px;
+    }
+}
 </style>

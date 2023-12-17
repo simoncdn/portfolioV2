@@ -47,4 +47,13 @@ defineProps({
     height: 35%;
     background-color: var(--white);
 }
+
+@media (max-width: 768px) {
+    .left-side p {
+        font-size: 12px;
+    }
+    .line{
+        height: 35%;
+    }
+}
 </style>

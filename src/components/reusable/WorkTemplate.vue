@@ -85,7 +85,7 @@ defineProps({
     background-color: var(--black);
     display: flex;
     flex-direction: column;
-    padding: 200px 400px;
+    padding: var(--padding-section);
     gap: 60px;
 }
 
@@ -115,6 +115,7 @@ defineProps({
     font-size: 16px;
     font-weight: 400;
 }
+
 .sub-description {
     color: var(--white);
     font-size: 16px;
@@ -168,5 +169,37 @@ defineProps({
 .languages-list li {
     list-style: none;
     white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .work {
+        gap: 25px;
+    }
+    .work-content {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .work-date {
+        font-size: 16px;
+    }
+
+    .work-description {
+        width: 100%;
+    }
+
+    .description,
+    .sub-description,
+    .work-link {
+        font-size: 14px;
+    }
+
+    .hard-skills-container {
+        width: 100%;
+        gap: 45px;
+    }
+    .hard-skills-container h3 {
+        font-size: 20px;
+    }
 }
 </style>

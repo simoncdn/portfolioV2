@@ -44,10 +44,7 @@ const navList = [
     flex-direction: column;
     justify-content: start;
     align-items: left;
-    /* background-color: violet; */
-    /* padding: 400px 200px; */
-    padding: 200px 400px;
-    /* gap: 140px */
+    padding: var(--padding-section);
     gap: 80px;
 }
 
@@ -114,5 +111,36 @@ nav ul li {
 nav ul li:hover .link-underline {
     height: 80%;
     transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding-top: 70px;
+    }
+
+    .title-and-description {
+        flex-direction: column-reverse;
+        gap: 20px;
+    }
+
+    nav ul li {
+        width: fit-content;
+    }
+
+    p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 475px) {
+    h1 {
+        font-size: 84px;
+        line-height: 0.87;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 60px;
+    }
 }
 </style>

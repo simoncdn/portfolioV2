@@ -33,8 +33,8 @@ const works = [
     height: 100vh;
     display: flex;
     flex-direction: column;
-    padding: 200px 400px;
-    gap: 200px;
+    padding: var(--padding-section);
+    gap: var(--gap-section);
 }
 
 ul {
@@ -49,5 +49,17 @@ li {
     font-size: 36px;
     font-weight: 400;
     text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    li {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 475px) {
+    li {
+        font-size: 24px;
+    }
 }
 </style>

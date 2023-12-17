@@ -71,5 +71,11 @@ a:hover {
     text-decoration: underline;
     cursor: pointer;
 }
+
+@media (max-width: 768px) {
+    a {
+        font-size: 12px;
+    }
+}
 </style>
 
