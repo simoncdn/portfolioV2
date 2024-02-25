@@ -15,17 +15,14 @@ const currentIndex = ref(0)
 const isElementHover = ref(false)
 
 const licenseKey = import.meta.env.VITE_LICENSE_KEY
-// const scrollHorizontallyKey = import.meta.env.VITE_SCROLL_HORIZONTALLY_KEY
-// const faddingEffectKey = import.meta.env.VITE_FADDING_EFFECT_KEY
-
 const scrollHorizontallyKey = import.meta.env.VITE_SCROLL_ACTIVATION_HORIZONTALLY_KEY
-const faddingEffectKey = import.meta.env.VITE_FADING_ACTIVATION_KEY
+const fadingEffectKey = import.meta.env.VITE_FADING_ACTIVATION_KEY
 
 const options = {
   // Keys
   licenseKey,
   scrollHorizontallyKey,
-  faddingEffectKey,
+  fadingEffectKey,
 
   // Navigation
   menu: '#menu',

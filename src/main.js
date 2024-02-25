@@ -7,11 +7,11 @@ import 'vue-fullpage.js/dist/style.css'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
-import App from './App.vue'
 import router from './router'
 import VueFullPage from 'vue-fullpage.js'
+import AppVue from './App.vue'
 
-const app = createApp(App)
+const app = createApp(AppVue)
 
 app.use(createPinia())
 app.use(router)
