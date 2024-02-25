@@ -4,7 +4,7 @@ import { cn } from '@/utils/helper'
 </script>
 
 <template>
-  <div :class="cn('boxWidth', 'gap-20', 'flexCol justify-center')">
+  <div :class="cn('boxWidth', 'gap-20', 'flexCol')">
     <SectionTitle label="Contact" />
 
     <div :class="cn('gap-6', 'flex items-baseline')">

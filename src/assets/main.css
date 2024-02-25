@@ -26,22 +26,3 @@ body {
 /* 		scale: 0; */
 /* 	} */
 /* } */
-
-@media screen and (max-width: 1024px) {
-  :root {
-    --padding-section: 100px 200px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  :root {
-    --padding-section: 60px 80px;
-    --gap-section: 100px;
-  }
-}
-
-@media screen and (max-width: 475px) {
-  :root {
-    --padding-section: 20px 40px;
-  }
-}

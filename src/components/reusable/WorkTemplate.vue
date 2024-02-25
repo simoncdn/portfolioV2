@@ -25,8 +25,12 @@ const { x, y } = useMouse()
       <div :class="cn('w-full', 'gap-48', 'flex')">
         <div :class="cn('w-6/12', 'gap-6', 'flexCol')">
           <h4 :class="cn('heading4 text-cream')">{{ work.date }}</h4>
-          <p :class="cn('txt')">{{ work.description }}</p>
-          <p v-if="work.subDescription" :class="cn('txt font-bold')">{{ work.subDescription }}</p>
+
+          <p :class="cn('max-w-2xl', 'txt')">{{ work.description }}</p>
+          <p v-if="work.subDescription" :class="cn('max-w-2xl', 'txt font-bold')">
+            {{ work.subDescription }}
+          </p>
+
           <div
             :class="cn('w-fit')"
             @mouseover="$emit('onHover', true)"
@@ -41,7 +45,7 @@ const { x, y } = useMouse()
               :class="
                 cn(
                   'absolute top-0 left-0 pointer-event-none z-20 hidden',
-                  'w-60 h-60',
+                  'w-96 h-60',
                   'translate-x-1/2 translate-y-1/2',
                   'bg-purple-200 animate-fade-in'
                 )
@@ -51,7 +55,13 @@ const { x, y } = useMouse()
                 transform: `translate(${x - -2}px, ${y - -2}px)`,
                 animation: isActive ? 'fadeIn 0.3s linear' : ''
               }"
-            ></div>
+            >
+              <img
+                :src="work.image"
+                :alt="work.name"
+                :class="cn('w-full h-full', 'object-cover', 'grayscale')"
+              />
+            </div>
           </div>
         </div>
 

@@ -8,7 +8,7 @@ import { cn } from '@/utils/helper'
     :class="
       cn(
         'absolute top-0 left-0',
-        'w-1/12 h-full',
+        'w-1/12 max-w-16 h-full',
         'gap-4',
         'flexCol flexCenter',
         'mix-blend-difference'

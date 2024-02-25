@@ -31,44 +31,46 @@ const librariesList = [
       </div>
     </div>
 
-    <div :class="cn('w-6/12 h-screen', 'flexCol justify-center', 'text-cream')">
+    <div :class="cn('w-6/12 h-screen', 'gap-20', 'flexCol justify-center', 'text-cream')">
       <SectionTitle label="About" color="var(--white)" />
 
-      <div :class="cn('gap-2 my-8', 'flexCol', 'heading4 text-cream')">
-        <h4>France</h4>
-        <h4>96'</h4>
-      </div>
-
-      <div :class="cn('w-full max-w-xl', 'mb-16', 'txt')">
-        <p>Frontend developer based in France specialized in React.js and TypeScript.</p>
-        <p>
-          Passionate about crafting modern and responsive user interfaces, I bring technical
-          expertise and a creative approach to each project.
-        </p>
-        <p>
-          With years of experience, I collaborate with businesses and startups to turn their ideas
-          into high-performing, user-friendly web applications.
-        </p>
-      </div>
-
       <div :class="cn('gap-12', 'flexCol')">
-        <div :class="cn('gap-6', 'flexCol')">
-          <h3 :class="cn('heading3 text-cream')">Languages & Frameworks</h3>
-
-          <ul :class="cn('max-w-96', 'gap-4', 'flexRow flex-wrap')">
-            <li v-for="language in languagesList" :key="language">
-              <Badge :label="language" />
-            </li>
-          </ul>
+        <div :class="cn('gap-2', 'flexCol', 'heading4 text-cream')">
+          <h4>France</h4>
+          <h4>96'</h4>
         </div>
 
-        <div :class="cn('gap-6', 'flexCol')">
-          <h3 :class="cn('heading3 text-cream')">Libraries & Tools</h3>
-          <ul :class="cn('max-w-96', 'gap-4', 'flexRow flex-wrap')">
-            <li v-for="library in librariesList" :key="library">
-              <Badge :label="library" />
-            </li>
-          </ul>
+        <div :class="cn('w-full max-w-xl', 'mb-12', 'txt')">
+          <p>Frontend developer based in France specialized in React.js and TypeScript.</p>
+          <p>
+            Passionate about crafting modern and responsive user interfaces, I bring technical
+            expertise and a creative approach to each project.
+          </p>
+          <p>
+            With years of experience, I collaborate with businesses and startups to turn their ideas
+            into high-performing, user-friendly web applications.
+          </p>
+        </div>
+
+        <div :class="cn('gap-12', 'flexCol')">
+          <div :class="cn('gap-6', 'flexCol')">
+            <h3 :class="cn('heading3 text-cream')">Languages & Frameworks</h3>
+
+            <ul :class="cn('max-w-xl', 'gap-4', 'flexRow flex-wrap')">
+              <li v-for="language in languagesList" :key="language">
+                <Badge :label="language" />
+              </li>
+            </ul>
+          </div>
+
+          <div :class="cn('gap-6', 'flexCol')">
+            <h3 :class="cn('heading3 text-cream')">Libraries & Tools</h3>
+            <ul :class="cn('max-w-xl', 'gap-4', 'flexRow flex-wrap')">
+              <li v-for="library in librariesList" :key="library">
+                <Badge :label="library" />
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

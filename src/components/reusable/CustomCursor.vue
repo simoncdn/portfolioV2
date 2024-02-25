@@ -20,10 +20,10 @@ defineProps({
       )
     "
     :style="{
-      transform: isActive ? `translate(${x - 20}px, ${y - 20}px)` : `translate(${x}px, ${y}px)`,
+      transform: isActive ? `translate(${x - 40}px, ${y - 40}px)` : `translate(${x}px, ${y}px)`,
       transition: isActive ? 'all 0.2s linear' : '',
-      width: isActive ? '40px' : '',
-      height: isActive ? '40px' : '',
+      width: isActive ? '80px' : '',
+      height: isActive ? '80px' : '',
       backgroundColor: isActive ? 'var(--cream)' : ''
     }"
   ></div>

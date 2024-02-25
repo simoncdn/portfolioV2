@@ -11,9 +11,11 @@ defineProps({
 </script>
 
 <template>
-  <Footer @onHover="(value) => onHoverElement(value)" />
-  <LeftSide />
-  <RightSide :current-anchor="currentAnchor" :currentIndex="currentIndex" />
+  <div>
+    <Footer @onHover="(value) => onHoverElement(value)" />
+    <LeftSide />
+    <RightSide :current-anchor="currentAnchor" :currentIndex="currentIndex" />
 
-  <slot />
+    <slot />
+  </div>
 </template>

@@ -22,16 +22,29 @@ const works = [
     <div :class="cn('boxWidth', 'flexCol', 'gap-20')">
       <SectionTitle label="Work" />
 
-      <ul :class="cn('gap-24', 'flexCol')">
+      <ul :class="cn(' border-light-grey', 'flexCol')">
         <li
-          :class="cn('w-fit', 'text-5xl text-carbon underline')"
           v-for="work in works"
+          :class="
+            cn(
+              'group relative',
+              'w-full',
+              'py-14 border-b border-light-grey',
+              'text-5xl text-carbon uppercase'
+            )
+          "
           :key="work.name"
-          @mouseover="$emit('onHover', true)"
-          @mouseleave="$emit('onHover', false)"
           @click="$emit('moveTo', 'work', work.index)"
         >
-          {{ work.name }}
+          <span
+            @mouseover="$emit('onHover', true)"
+            @mouseleave="$emit('onHover', false)"
+            :class="
+              cn('block w-fit', 'hover:translate-x-4 transition-all duration-300 ease-in-out')
+            "
+          >
+            {{ work.name }}
+          </span>
         </li>
       </ul>
     </div>

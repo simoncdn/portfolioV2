@@ -50,7 +50,7 @@ const options = {
   controlArrows: false,
   verticalCentered: false,
   sectionsColor: ['var(--cream)', 'var(--carbon)', 'var(--cream)', 'var(--cream)'],
-  fixedElements: '#footer, #right-side, #left-side, #hello',
+  fixedElements: '#footer, #right-side, #left-side',
   attributes: true,
 
   // Custom selectors

@@ -45,8 +45,8 @@ const navList = [
     :class="
       cn(
         'fixed top-0 right-0',
-        'w-1/12 h-screen',
-        'pb-12',
+        'w-1/12 max-w-16 h-screen',
+        'pb-24',
         'flexCol items-center justify-end',
         'mix-blend-difference'
       )
