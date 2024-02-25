@@ -1,66 +1,39 @@
 <script setup>
-import SectionTitle from '@/components/reusable/SectionTitle.vue';
+import SectionTitle from '@/components/reusable/SectionTitle.vue'
+import { cn } from '@/utils/helper'
 
 const works = [
-	{
-		index: 1,
-		name: 'Forma',
-	},
-	{
-		index: 2,
-		name: 'Crazee-Burger',
-	},
-	{
-		index: 3,
-		name: 'Workshopbya',
-	},
+  {
+    index: 1,
+    name: 'Forma'
+  },
+  {
+    index: 2,
+    name: 'Crazee-Burger'
+  },
+  {
+    index: 3,
+    name: 'Workshopbya'
+  }
 ]
 </script>
 <template>
-	<div class="work">
-		<SectionTitle label="Work" />
+  <div class="works" data-anchor="work-menu">
+    <div :class="cn('boxWidth', 'flexCol', 'gap-20')">
+      <SectionTitle label="Work" />
 
-		<ul>
-			<li v-for="work in works" :key="work.name" @click="$emit('moveTo', 'work', work.index)">{{ work.name }}</li>
-		</ul>
-	</div>
+      <ul :class="cn('gap-24', 'flexCol')">
+        <li
+          :class="cn('w-fit', 'text-5xl text-carbon underline')"
+          v-for="work in works"
+          :key="work.name"
+          @mouseover="$emit('onHover', true)"
+          @mouseleave="$emit('onHover', false)"
+          @click="$emit('moveTo', 'work', work.index)"
+        >
+          {{ work.name }}
+        </li>
+      </ul>
+    </div>
+  </div>
 </template>
-
-
-<style scoped>
-.work {
-	width: 100%;
-	height: 100vh;
-	display: flex;
-	position: relative;
-	flex-direction: column;
-	padding: var(--padding-section);
-	gap: var(--gap-section);
-}
-
-ul {
-	display: flex;
-	flex-direction: column;
-	gap: 100px;
-}
-
-li {
-	list-style-type: none;
-	color: var(--black);
-	font-size: 36px;
-	font-weight: 400;
-	text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-	li {
-		font-size: 32px;
-	}
-}
-
-@media (max-width: 475px) {
-	li {
-		font-size: 24px;
-	}
-}
-</style>

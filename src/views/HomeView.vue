@@ -1,106 +1,147 @@
 <script setup>
-import Hero from '@/sections/HeroSection.vue';
-import About from '@/sections/AboutSection.vue';
-import Work from '@/sections/WorkSection.vue';
-import Contact from '@/sections/ContactSection.vue';
-import RightSide from '@/components/Layer/RightSide.vue';
-import LeftSide from '@/components/Layer/LeftSide.vue';
-import Footer from '@/components/Layer/Footer.vue';
-import WorkTemplate from '@/components/reusable/WorkTemplate.vue';
-import Button from '@/components/reusable/ButtonReusable.vue';
-import { ref } from 'vue';
+import Hero from '@/sections/HeroSection.vue'
+import About from '@/sections/AboutSection.vue'
+import Work from '@/sections/WorkSection.vue'
+import Contact from '@/sections/ContactSection.vue'
+import WorkTemplate from '@/components/reusable/WorkTemplate.vue'
+import { ref } from 'vue'
 import { worksInfo } from '../utils/works-info'
-import * as helper from '../utils/helper'
+import CustomCursor from '@/components/reusable/CustomCursor.vue'
+import BaseLayout from '@/layouts/BaseLayout.vue'
 
-const fullpage = ref(null);
-const currentAnchor = ref('');
-const currentTextColor = ref('var(--black)');
-const currentIndex = ref('');
+const fullpage = ref(null)
+const currentAnchor = ref('')
+const currentIndex = ref(0)
+const isElementHover = ref(false)
 
-const licenseKey = import.meta.env.VITE_LICENSE_KEY;
-const scrollHorizontallyKey = import.meta.env.VITE_SCROLL_HORIZONTALLY_KEY;
-const faddingEffectKey = import.meta.env.VITE_FADDING_EFFECT_KEY;
+const licenseKey = import.meta.env.VITE_LICENSE_KEY
+const scrollHorizontallyKey = import.meta.env.VITE_SCROLL_HORIZONTALLY_KEY
+const faddingEffectKey = import.meta.env.VITE_FADDING_EFFECT_KEY
+
 const options = {
-	licenseKey,
-	scrollHorizontallyKey,
-	faddingEffectKey,
-	menu: '#menu',
-	observer: true,
-	attributes: true,
-	fadingEffect: 'sections',
-	anchors: ['home', 'about', 'work', 'contact'],
-	sectionsColor: ['var(--white)', 'var(--black)', 'var(--white)', 'var(--white)'],
-	fixedElements: '.footer, .right-side, .left-side, #hello',
-	scrollingSpeed: 1200,
-	fitToSection: true,
-	fitToSectionDelay: 1000,
-	// autoscrolling: true,
-	scrollHorizontally: true,
-	easing: 'easeInOutCubic',
-	easingcss3: 'cubic-bezier(0.88,0,0.265,1)',
-	dragAndMove: true,
-	navigationTooltips: ['firstSlide', 'secondSlide'],
-	controlArrows: true,
-	controlArrowColor: 'var(--black)',
-	controlArrowsHTML: [
-		'<div class="fp-arrow right"></div>',
-		'<div class="fp-arrow left"></div>'
-	],
-	slidesNavigation: true,
-	slidesNavPosition: 'bottom',
-	onSlideLeave,
+  // Keys
+  licenseKey,
+  scrollHorizontallyKey,
+  faddingEffectKey,
+
+  // Navigation
+  menu: '#menu',
+  lockAnchors: false,
+  anchors: ['Home', 'About', 'Work', 'Contact'],
+  navigation: false,
+  navigationTooltips: ['Home', 'About', 'Work', 'Contact'],
+  showActiveTooltip: false,
+  slidesNavigation: true,
+  slidesNavPosition: 'bottom',
+
+  // Scolling
+  css3: true,
+  scrollingSpeed: 1000,
+  autoscrolling: false,
+  fitToSection: true,
+  fitToSectionDelay: 1000,
+  easing: 'easeInOutCubic',
+  easingcss3: 'cubic-bezier(0.88,0,0.265,1)',
+  scrollHorizontally: true,
+  dragAndMove: true,
+  fadingEffect: 'sections',
+
+  // Design
+  controlArrows: false,
+  verticalCentered: false,
+  sectionsColor: ['var(--cream)', 'var(--carbon)', 'var(--cream)', 'var(--cream)'],
+  fixedElements: '#footer, #right-side, #left-side, #hello',
+  attributes: true,
+
+  // Custom selectors
+  observer: true,
+  slideSelector: '.works',
+
+  // Events
+  onSlideLeave,
+  onLeave
 }
 
-function onSlideLeave(_section, origin) {
-	currentIndex.value = origin
+function onSlideLeave(section, _origin, destination) {
+  if (destination.index === 0) {
+    currentAnchor.value = section.anchor
+  } else if (destination.index > 0) {
+    currentAnchor.value = `${section.anchor} / ${destination.anchor}`
+  }
 }
 function handleMoveTo(sectionName, slideNumber) {
-	fullpage.value.api.moveTo(sectionName, slideNumber);
+  return fullpage.value.api.moveTo(sectionName, slideNumber)
 }
-const makeActionsOnScroll = () => {
-	const anchorFind = fullpage.value.api.getActiveSection().anchor;
-	if (anchorFind) {
-		currentAnchor.value = anchorFind;
-		currentTextColor.value = helper.getCurrentTextColor(anchorFind);
-	}
+function onHoverElement(state) {
+  isElementHover.value = state
+}
+function makeActionsOnScroll() {
+  const anchorFind = fullpage.value.api.getActiveSection().anchor
+  if (anchorFind) {
+    currentAnchor.value = anchorFind
+  }
+}
+function onLeave(_origin, destination) {
+  if (destination.anchor) {
+    currentAnchor.value = destination.anchor
+    currentIndex.value = destination.index
+  }
 }
 
-const body = document.querySelector('body');
+const body = document.querySelector('#app')
 const observer = new MutationObserver(makeActionsOnScroll)
-observer.observe(body, options);
+observer.observe(body, options)
 </script>
 
 <template>
-	<div>
-		<full-page id="fullpage" ref="fullpage" :options="options">
-			<LeftSide :currentTextColor="currentTextColor" />
-			<RightSide @moveTo="handleMoveTo" :current-anchor="currentAnchor" :currentTextColor="currentTextColor" />
-			<Footer :currentTextColor="currentTextColor" />
-			<div class="section">
-				<Hero @moveTo="handleMoveTo" />
-			</div>
-			<div class="section">
-				<About />
-			</div>
-			<div class="section">
-				<div class="slide" data-anchor="slide1">
-					<Work @moveTo="handleMoveTo" />
-				</div>
-				<div v-for="work in worksInfo" :key="work.name" class="slide" data-anchor="slide2">
-					<WorkTemplate :name="work.name" :date="work.date" :description="work.description"
-						:sub-description="work.subdescription" :link="work.url" :languages-list="work.laguages"
-						:libraries-list="work.tools" />
-				</div>
-			</div>
-			<div class=" section">
-				<Contact />
-			</div>
-		</full-page>
-	</div>
+  <full-page id="fullpage" ref="fullpage" :options="options">
+    <BaseLayout
+      :onHoverElement="onHoverElement"
+      :current-anchor="currentAnchor"
+      :currentIndex="currentIndex"
+    >
+      <CustomCursor :isActive="isElementHover" />
+      <div class="section">
+        <Hero @moveTo="handleMoveTo" />
+      </div>
+      <div class="section">
+        <About />
+      </div>
+      <div class="section">
+        <Work @onHover="onHoverElement" @moveTo="handleMoveTo" />
+        <WorkTemplate
+          v-for="work in worksInfo"
+          :key="work.name"
+          :work="work"
+          :isActive="isElementHover"
+          @onHover="onHoverElement"
+        />
+      </div>
+      <div class="section">
+        <Contact @onHover="onHoverElement" />
+      </div>
+    </BaseLayout>
+  </full-page>
 </template>
 
 <style>
-.fp-arrow .left {
-	left: 100px;
+.fp-slidesNav.fp-bottom {
+  bottom: 0;
+}
+
+.fp-bottom {
+  display: flex;
+  height: 6rem;
+  justify-content: center;
+  align-items: center;
+  mix-blend-mode: difference;
+}
+
+.fp-slidesNav ul li a span {
+  background: var(--cream);
+}
+
+.fp-watermark {
+  display: none;
 }
 </style>

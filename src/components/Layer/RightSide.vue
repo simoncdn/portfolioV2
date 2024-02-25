@@ -1,113 +1,69 @@
 <script setup>
-import { defineProps } from 'vue';
+import { cn } from '@/utils/helper'
+import { defineProps } from 'vue'
 
 const props = defineProps({
-    currentAnchor: {
-        type: String,
-        required: true
-    },
-    currentTextColor: {
-        type: String,
-        required: true
-    }
+  currentAnchor: {
+    type: String,
+    required: true
+  },
+  currentIndex: {
+    type: Number,
+    required: true
+  }
 })
 const getCurrentCubeColor = (link) => {
-    if (props.currentAnchor === link) {
-        return 'var(--black)'
-    }
-    return 'var(--white)'
+  if (props.currentAnchor.includes(link)) {
+    return 'var(--light-carbon)'
+  } else {
+    return 'var(--cream)'
+  }
 }
 const navList = [
-    {
-        name: 'Home',
-        link: 'home',
-    },
-    {
-        name: 'About',
-        link: 'about',
-    },
-    {
-        name: 'Work',
-        link: 'work',
-    },
-    {
-        name: 'Contact',
-        link: 'contact',
-    }
+  {
+    id: 0,
+    link: 'Home'
+  },
+  {
+    id: 1,
+    link: 'About'
+  },
+  {
+    id: 2,
+    link: 'Work'
+  },
+  {
+    id: 3,
+    link: 'Contact'
+  }
 ]
 </script>
 
 <template>
-    <div class="right-side">
-        <ul class="cube-container">
-            <li :style="{ backgroundColor: getCurrentCubeColor(nav.link) }" class="cube"
-                @click="$emit('moveTo', nav.link, 0)" v-for="nav in navList" :key="nav.name">
-            </li>
-        </ul>
-
-        <span class="line"></span>
-        <p>{{ props.currentAnchor }}</p>
-    </div>
+  <div
+    id="right-side"
+    :class="
+      cn(
+        'fixed top-0 right-0',
+        'w-1/12 h-screen',
+        'pb-12',
+        'flexCol items-center justify-end',
+        'mix-blend-difference'
+      )
+    "
+  >
+    <ul :class="cn('relative', 'gap-2 md:gap-4', 'flexCol flexCenter')">
+      <li
+        :class="cn('w-1 h-1 md:w-1.5 md:h-1.5', 'list-none')"
+        @click="$emit('moveTo', nav.link, 0)"
+        v-for="nav in navList"
+        :key="nav.link"
+        :style="{ backgroundColor: getCurrentCubeColor(nav.link) }"
+      ></li>
+    </ul>
+    <span :class="cn('w-[1px] h-1/6', 'bg-cream', 'my-4')"></span>
+    <p :class="cn('txt', 'rotate-180', '[writing-mode:vertical-lr]')">
+      {{ props.currentAnchor }}
+    </p>
+  </div>
 </template>
-
-<style scoped>
-.right-side {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 5%;
-    height: calc(100vh - 50px);
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: center;
-    mix-blend-mode: difference;
-}
-
-.right-side p {
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    font-weight: 200;
-    font-size: 16px;
-    min-height: 50px;
-    color: var(--white);
-    z-index: 10;
-}
-
-.line {
-    width: 1px;
-    height: 20%;
-    background-color: var(--white);
-    margin-top: 20px;
-}
-
-.cube-container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
-
-.cube {
-    width: 6px;
-    height: 6px;
-    cursor: pointer;
-}
-
-@media (max-width: 768px) {
-    .right-side p {
-        font-size: 12px;
-        min-height: 40px;
-    }
-
-    .cube-container{
-        gap: 10px;
-    }
-    .cube{
-        width: 4px;
-        height: 4px;
-    }
-}
-</style>

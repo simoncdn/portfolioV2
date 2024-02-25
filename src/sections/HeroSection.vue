@@ -1,146 +1,97 @@
 <script setup>
-const navList = [
-    {
-        name: 'About',
-        link: 'about'
-    },
-    {
-        name: 'Work',
-        link: 'work'
-    },
-    {
-        name: 'Contact',
-        link: 'contact'
-    }
-]
+import { cn } from '@/utils/helper'
 
+defineProps({
+  moveTo: Function
+})
+
+const navList = [
+  {
+    link: 'About'
+  },
+  {
+    link: 'Work'
+  },
+  {
+    link: 'Contact'
+  }
+]
 </script>
 
 <template>
-    <div ref="heroSection" class="hero-section">
-        <div class="title-and-description">
-            <div class="hero-title">
-                <h1>Simon</h1>
-                <h1>Cardona</h1>
-            </div>
-            <p>Frontend developer</p>
-        </div>
-        <nav>
-            <ul>
-                <li v-for="nav in navList" :key="nav.name">
-                    <p class="nav-links" @click="$emit('moveTo', nav.link, 0)">{{ nav.name }}</p>
-                    <span class="link-underline"></span>
-                </li>
-            </ul>
-        </nav>
+  <div ref="heroSection" :class="cn('boxWidth', 'gap-20', 'flexCol justify-center')">
+    <div :class="cn('gap-10', 'flexCol')">
+      <h1
+        :class="
+          cn(
+            'w-fit',
+            'flexCol justify-start',
+            'text-sunBurst font-bold text-[clamp(3rem,20vmin,20rem)] leading-none'
+          )
+        "
+      >
+        <span>Simon</span>
+        <span>Cardona</span>
+      </h1>
+      <p :class="cn('px-2 md:px-4', 'text-2xl font-normal text-grey')">Frontend developer</p>
     </div>
+    <nav class="flex h-2/6 px-2 md:px-4">
+      <ul :class="cn('gap-20', 'flex')">
+        <li
+          :class="cn('relative group', 'h-fit', 'py-0 px-0.5', 'list-none')"
+          v-for="nav in navList"
+          :key="nav.link"
+        >
+          <a
+            :class="cn('relative z-10', 'text-carbon text-2xl font-thin')"
+            @click="$emit('moveTo', nav.link, 0)"
+            >{{ nav.link }}</a
+          >
+          <span
+            :class="
+              cn(
+                'absolute bottom-0 left-0',
+                'w-full h-2',
+                'bg-sunBurst',
+                'group-hover:h-full transition-all duration-300'
+              )
+            "
+          ></span>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </template>
 
 <style>
-.hero-section {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: left;
-    padding: var(--padding-section);
-    gap: 80px;
-}
-
-.title-and-description {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-.hero-title {
-    display: flex;
-    width: fit-content;
-    flex-direction: column;
-    justify-content: start;
-}
-
-h1 {
-    font-size: 128px;
-    font-weight: 600;
-    color: var(--orange);
-    line-height: 0.87;
-}
-
-p {
-    font-size: 24px;
-    font-weight: 400;
-    color: var(--gray);
-}
-
-nav {
-    display: flex;
-}
-
-nav ul {
-    display: flex;
-    gap: 80px;
-}
-
-nav ul li {
-    height: fit-content;
-    list-style: none;
-    position: relative;
-    padding: 0px 2px;
-}
-
-.nav-links {
-    position: relative;
-    color: var(--black);
-    font-size: 24px;
-    font-weight: 200;
-    z-index: 10;
-}
-
-.link-underline {
-    position: absolute;
-    bottom: 4px;
-    left: 0;
-    width: 100%;
-    height: 8px;
-    background-color: var(--orange);
-    transition: all 0.3s ease-in-out;
-}
-
-nav ul li:hover .link-underline {
-    height: 80%;
-    transition: all 0.3s ease-in-out;
-}
-
 @media (max-width: 768px) {
-    .hero-section {
-        padding-top: 70px;
-    }
+  .hero-section {
+    padding-top: 70px;
+  }
 
-    .title-and-description {
-        flex-direction: column-reverse;
-        gap: 20px;
-    }
+  .title-and-description {
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
 
-    nav ul li {
-        width: fit-content;
-    }
+  nav ul li {
+    width: fit-content;
+  }
 
-    p {
-        font-size: 16px;
-    }
+  p {
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 475px) {
-    h1 {
-        font-size: 84px;
-        line-height: 0.87;
-    }
+  h1 {
+    font-size: 84px;
+    line-height: 0.87;
+  }
 
-    nav ul {
-        flex-direction: column;
-        gap: 60px;
-    }
+  nav ul {
+    flex-direction: column;
+    gap: 60px;
+  }
 }
 </style>

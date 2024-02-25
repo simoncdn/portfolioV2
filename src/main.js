@@ -1,4 +1,5 @@
 import './assets/main.css'
+import './assets/style.css'
 import './utils/fullpage.scrollHorizontally.min'
 import './utils/fullpage.fadingEffect.min'
 import 'vue-fullpage.js/dist/style.css'

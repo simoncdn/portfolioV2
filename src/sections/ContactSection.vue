@@ -1,76 +1,28 @@
 <script setup>
-import SectionTitle from '@/components/reusable/SectionTitle.vue';
-
-
+import SectionTitle from '@/components/reusable/SectionTitle.vue'
+import { cn } from '@/utils/helper'
 </script>
+
 <template>
-    <div class="contact">
-        <SectionTitle label="Contact" />
+  <div :class="cn('boxWidth', 'gap-20', 'flexCol justify-center')">
+    <SectionTitle label="Contact" />
 
-        <div class="content">
-            <img src="../assets/arrow-right.svg" alt="phone" />
+    <div :class="cn('gap-6', 'flex items-baseline')">
+      <img src="../assets/arrow-right.svg" alt="phone" />
 
-            <div class="description-mail">
-                <div class="description">
-                    <span>Discuss about a new projet ? An opportunity ?</span>
-                    <span>Let’s have a chat.</span>
-                </div>
-                <a href="mailto:cdna.simon@gmail.com" class="mail-address">cdna.simon@gmail.com</a>
-            </div>
+      <div :class="cn('gap-8', 'flexCol')">
+        <div :class="cn('flexCol', 'text-carbon font-light text-2xl')">
+          <span>Discuss about a new projet ? An opportunity ?</span>
+          <span>Let’s have a chat.</span>
         </div>
+        <a
+          @mouseover="$emit('onHover', true)"
+          @mouseleave="$emit('onHover', false)"
+          href="mailto:cdna.simon@gmail.com"
+          :class="cn('text-carbon font-normal text-4xl')"
+          >cdna.simon@gmail.com</a
+        >
+      </div>
     </div>
+  </div>
 </template>
-
-
-<style scoped>
-.contact {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    padding: var(--padding-section);
-    gap: var(--gap-section);
-}
-
-.content {
-    display: flex;
-    align-items: baseline;
-    gap: 20px;
-}
-
-.description-mail {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-}
-
-.description {
-    display: flex;
-    flex-direction: column;
-    font-size: 24px;
-    color: var(--black);
-    font-weight: 300;
-}
-
-.mail-address {
-    font-size: 32px;
-    font-weight: 400;
-    color: var(--black);
-}
-
-@media (max-width: 768px) {
-    .description {
-        font-size: 18px;
-    }
-
-    .mail-address {
-        font-size: 24px;
-    }
-}
-
-@media (max-width: 475px) {
-    .content {
-        flex-direction: column;
-    }
-}
-</style>

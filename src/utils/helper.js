@@ -1,3 +1,10 @@
+import { clsx } from 'clsx'
+import { twMerge } from 'tailwind-merge'
+
+export const cn = (...classes) => {
+  return twMerge(clsx(...classes))
+}
+
 export function getCurrentTextColor(sectionAnchor) {
   switch (sectionAnchor) {
     case 'home':

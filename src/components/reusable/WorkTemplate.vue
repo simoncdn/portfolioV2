@@ -1,205 +1,81 @@
 <script setup>
-import SectionTitle from '@/components/reusable/SectionTitle.vue';
+import SectionTitle from '@/components/reusable/SectionTitle.vue'
 import Badge from '@/components/reusable/Badge.vue'
-import { defineProps } from 'vue';
-import { ArrowUpRightIcon } from "@heroicons/vue/24/solid"
+import { ArrowUpRightIcon } from '@heroicons/vue/24/solid'
+import { defineProps } from 'vue'
+import { cn } from '@/utils/helper'
+import { useMouse } from '@vueuse/core'
 
 defineProps({
-    name: {
-        type: String,
-        required: true
-    },
-    date: {
-        type: String,
-        required: true
-    },
-    description: {
-        type: String,
-        required: true
-    },
-    subDescription: {
-        type: String,
-    },
-    link: {
-        type: String,
-        required: true
-    },
-    languagesList: {
-        type: Array[String],
-        required: true
-    },
-    librariesList: {
-        type: Array[String],
-        required: true
-    }
+  work: {
+    type: Object,
+    required: true
+  },
+  isActive: Boolean
 })
+
+const { x, y } = useMouse()
 </script>
 
 <template>
-    <div class="work">
-        <SectionTitle :label="name" color="var(--white)" />
+  <div class="works" :data-anchor="work.name">
+    <div :class="cn('boxWidth relative', 'bg-carbon', 'gap-20', 'flexCol')">
+      <SectionTitle :label="work.name" color="var(--cream)" />
 
-        <div class="work-content">
-            <div class="work-description">
-                <span class="work-date">{{ date }}</span>
-                <p class="description">{{ description }}</p>
-                <p v-if="subDescription" class="sub-description">{{ subDescription }}</p>
-                <a :href="link" class="work-link">
-                    <span>
-                        View site
-                    </span>
-                    <ArrowUpRightIcon class="work-link-icon" />
-                </a>
-            </div>
+      <div :class="cn('w-full', 'gap-48', 'flex')">
+        <div :class="cn('w-6/12', 'gap-6', 'flexCol')">
+          <h4 :class="cn('heading4 text-cream')">{{ work.date }}</h4>
+          <p :class="cn('txt')">{{ work.description }}</p>
+          <p v-if="work.subDescription" :class="cn('txt font-bold')">{{ work.subDescription }}</p>
+          <div
+            :class="cn('w-fit')"
+            @mouseover="$emit('onHover', true)"
+            @mouseleave="$emit('onHover', false)"
+          >
+            <a :href="work.url" :class="cn('cursor-none', 'gap-1', 'flexRow items-center', 'txt')">
+              <span>View site</span>
+              <ArrowUpRightIcon :class="cn('w-4 h-4')" />
+            </a>
 
-            <div class="hard-skills-container">
-
-                <div class="hard-skills-top">
-                    <h3 class="">Languages & Frameworks</h3>
-
-                    <ul class="languages-list">
-                        <li v-for=" language  in  languagesList " :key="language">
-                            <Badge :label="language" />
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="hard-skills-bottom">
-                    <h3 class="">Libraries & Tools</h3>
-                    <ul class="languages-list">
-                        <li v-for=" library  in  librariesList " :key="library">
-                            <Badge :label="library" />
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
+            <div
+              :class="
+                cn(
+                  'absolute top-0 left-0 pointer-event-none z-20 hidden',
+                  'w-60 h-60',
+                  'translate-x-1/2 translate-y-1/2',
+                  'bg-purple-200 animate-fade-in'
+                )
+              "
+              :style="{
+                display: isActive ? 'flex' : '',
+                transform: `translate(${x - -2}px, ${y - -2}px)`,
+                animation: isActive ? 'fadeIn 0.3s linear' : ''
+              }"
+            ></div>
+          </div>
         </div>
+
+        <div :class="cn('w-6/12', 'gap-12', 'flexCol')">
+          <div :class="cn('gap-6', 'flexCol')">
+            <h3 :class="cn('heading3 text-cream')">Languages & Frameworks</h3>
+
+            <ul :class="cn('maw-w-96', 'gap-4', 'flexRow flex-wrap')">
+              <li v-for="language in work.laguages" :key="language">
+                <Badge :label="language" />
+              </li>
+            </ul>
+          </div>
+
+          <div :class="cn('gap-6', 'flexCol')">
+            <h3 :class="cn('heading3 text-cream')">Libraries & Tools</h3>
+            <ul :class="cn('maw-w-96', 'gap-4', 'flexRow flex-wrap')">
+              <li v-for="library in work.tools" :key="library">
+                <Badge :label="library" />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </template>
-
-<style scoped>
-.work {
-    width: 100%;
-    height: 100vh;
-    background-color: var(--black);
-    display: flex;
-    flex-direction: column;
-    padding: var(--padding-section);
-    gap: 60px;
-}
-
-.work-content {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    gap: 200px;
-}
-
-.work-description {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-.work-date {
-    color: var(--white);
-    font-size: 20px;
-    font-weight: 600;
-}
-
-.description {
-    color: var(--white);
-    font-size: 16px;
-    font-weight: 400;
-}
-
-.sub-description {
-    color: var(--white);
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.work-link {
-    color: var(--white);
-    font-size: 16px;
-    font-weight: 400;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 2px;
-}
-
-.work-link:hover {
-    text-decoration: underline;
-}
-
-.work-link-icon {
-    width: 16px;
-    height: 16px;
-    display: flex;
-    align-items: end;
-}
-
-.hard-skills-container {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-    color: var(--white);
-}
-
-.hard-skills-container h3 {
-    font-size: 24px;
-    font-weight: 600;
-}
-
-.languages-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-top: 20px;
-    max-width: 360px;
-}
-
-.languages-list li {
-    list-style: none;
-    white-space: nowrap;
-}
-
-@media (max-width: 768px) {
-    .work {
-        gap: 25px;
-    }
-    .work-content {
-        flex-direction: column;
-        gap: 50px;
-    }
-
-    .work-date {
-        font-size: 16px;
-    }
-
-    .work-description {
-        width: 100%;
-    }
-
-    .description,
-    .sub-description,
-    .work-link {
-        font-size: 14px;
-    }
-
-    .hard-skills-container {
-        width: 100%;
-        gap: 45px;
-    }
-    .hard-skills-container h3 {
-        font-size: 20px;
-    }
-}
-</style>
