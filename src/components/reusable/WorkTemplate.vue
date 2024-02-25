@@ -19,11 +19,11 @@ const { x, y } = useMouse()
 
 <template>
   <div class="works" :data-anchor="work.name">
-    <div :class="cn('boxWidth relative', 'bg-carbon', 'gap-20', 'flexCol')">
+    <div :class="cn('boxWidth relative', 'bg-carbon', 'gap-14 md:gap-20', 'flexCol')">
       <SectionTitle :label="work.name" color="var(--cream)" />
 
-      <div :class="cn('w-full', 'gap-48', 'flex')">
-        <div :class="cn('w-6/12', 'gap-6', 'flexCol')">
+      <div :class="cn('w-full', 'gap-14 md:gap-48', 'flex flex-col md:flex-row')">
+        <div :class="cn('w-full md:w-6/12', 'gap-6', 'flexCol')">
           <h4 :class="cn('heading4 text-cream')">{{ work.date }}</h4>
 
           <p :class="cn('max-w-2xl', 'txt')">{{ work.description }}</p>
@@ -45,7 +45,7 @@ const { x, y } = useMouse()
               :class="
                 cn(
                   'absolute top-0 left-0 pointer-event-none z-20 hidden',
-                  'w-96 h-60',
+                  'w-60 h-40  md:w-96 md:h-60',
                   'translate-x-1/2 translate-y-1/2',
                   'bg-purple-200 animate-fade-in'
                 )
@@ -65,8 +65,8 @@ const { x, y } = useMouse()
           </div>
         </div>
 
-        <div :class="cn('w-6/12', 'gap-12', 'flexCol')">
-          <div :class="cn('gap-6', 'flexCol')">
+        <div :class="cn('w-full md:w-6/12', 'gap-12', 'flexCol')">
+          <div :class="cn('gap-4 md:gap-6', 'flexCol')">
             <h3 :class="cn('heading3 text-cream')">Languages & Frameworks</h3>
 
             <ul :class="cn('maw-w-96', 'gap-4', 'flexRow flex-wrap')">
@@ -76,7 +76,7 @@ const { x, y } = useMouse()
             </ul>
           </div>
 
-          <div :class="cn('gap-6', 'flexCol')">
+          <div :class="cn('gap-4 md:gap-6', 'flexCol')">
             <h3 :class="cn('heading3 text-cream')">Libraries & Tools</h3>
             <ul :class="cn('maw-w-96', 'gap-4', 'flexRow flex-wrap')">
               <li v-for="library in work.tools" :key="library">

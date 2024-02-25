@@ -1,21 +1,7 @@
 <script setup>
 import SectionTitle from '@/components/reusable/SectionTitle.vue'
 import { cn } from '@/utils/helper'
-
-const works = [
-  {
-    index: 1,
-    name: 'Forma'
-  },
-  {
-    index: 2,
-    name: 'Crazee-Burger'
-  },
-  {
-    index: 3,
-    name: 'Workshopbya'
-  }
-]
+import { worksInfo } from '@/utils/works-info'
 </script>
 <template>
   <div class="works" data-anchor="work-menu">
@@ -24,21 +10,22 @@ const works = [
 
       <ul :class="cn(' border-light-grey', 'flexCol')">
         <li
-          v-for="work in works"
+          v-for="work in worksInfo"
           :class="
             cn(
               'group relative',
               'w-full',
-              'py-14 border-b border-light-grey',
-              'text-5xl text-carbon uppercase'
+              'border-b border-light-grey',
+              'py-4 md:py-8 2xl:py-14',
+              'text-xl md:text-3xl 2xl:text-5xl text-carbon uppercase'
             )
           "
           :key="work.name"
-          @click="$emit('moveTo', 'work', work.index)"
         >
           <span
             @mouseover="$emit('onHover', true)"
             @mouseleave="$emit('onHover', false)"
+            @click="$emit('moveTo', 'Work', work.index)"
             :class="
               cn('block w-fit', 'hover:translate-x-4 transition-all duration-300 ease-in-out')
             "

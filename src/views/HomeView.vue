@@ -15,8 +15,11 @@ const currentIndex = ref(0)
 const isElementHover = ref(false)
 
 const licenseKey = import.meta.env.VITE_LICENSE_KEY
-const scrollHorizontallyKey = import.meta.env.VITE_SCROLL_HORIZONTALLY_KEY
-const faddingEffectKey = import.meta.env.VITE_FADDING_EFFECT_KEY
+// const scrollHorizontallyKey = import.meta.env.VITE_SCROLL_HORIZONTALLY_KEY
+// const faddingEffectKey = import.meta.env.VITE_FADDING_EFFECT_KEY
+
+const scrollHorizontallyKey = import.meta.env.VITE_SCROLL_ACTIVATION_HORIZONTALLY_KEY
+const faddingEffectKey = import.meta.env.VITE_FADING_ACTIVATION_KEY
 
 const options = {
   // Keys
@@ -63,6 +66,7 @@ const options = {
 }
 
 function onSlideLeave(section, _origin, destination) {
+  console.log(section, destination)
   if (destination.index === 0) {
     currentAnchor.value = section.anchor
   } else if (destination.index > 0) {
@@ -95,11 +99,7 @@ observer.observe(body, options)
 
 <template>
   <full-page id="fullpage" ref="fullpage" :options="options">
-    <BaseLayout
-      :onHoverElement="onHoverElement"
-      :current-anchor="currentAnchor"
-      :currentIndex="currentIndex"
-    >
+    <BaseLayout :onHoverElement="onHoverElement" :current-anchor="currentAnchor" :currentIndex="currentIndex">
       <CustomCursor :isActive="isElementHover" />
       <div class="section">
         <Hero @moveTo="handleMoveTo" />
@@ -109,13 +109,8 @@ observer.observe(body, options)
       </div>
       <div class="section">
         <Work @onHover="onHoverElement" @moveTo="handleMoveTo" />
-        <WorkTemplate
-          v-for="work in worksInfo"
-          :key="work.name"
-          :work="work"
-          :isActive="isElementHover"
-          @onHover="onHoverElement"
-        />
+        <WorkTemplate v-for="work in worksInfo" :key="work.name" :work="work" :isActive="isElementHover"
+          @onHover="onHoverElement" />
       </div>
       <div class="section">
         <Contact @onHover="onHoverElement" />
@@ -143,5 +138,11 @@ observer.observe(body, options)
 
 .fp-watermark {
   display: none;
+}
+
+@media (max-width: 1536px) {
+  .fp-bottom {
+    height: 3rem;
+  }
 }
 </style>

@@ -20,8 +20,8 @@ const librariesList = [
 </script>
 
 <template>
-  <div :class="cn('boxWidth', 'gap-20', 'flexBetween items-center')">
-    <div :class="cn('w-6/12 h-screen', 'flexCenter')">
+  <div :class="cn('boxWidth', 'gap-20', 'flexBetween items-end lg:items-center')">
+    <div :class="cn('hidden lg:flexCenter', 'w-6/12 h-screen')">
       <div :class="cn('relative', 'w-8/12 h-fit')">
         <img
           :class="cn('w-full', 'object-cover', 'mix-blend-lighten')"
@@ -31,17 +31,21 @@ const librariesList = [
       </div>
     </div>
 
-    <div :class="cn('w-6/12 h-screen', 'gap-20', 'flexCol justify-center', 'text-cream')">
+    <div
+      :class="
+        cn('w-full lg:w-6/12 h-screen', 'gap-14 md:gap-20', 'flexCol justify-center', 'text-cream')
+      "
+    >
       <SectionTitle label="About" color="var(--white)" />
 
-      <div :class="cn('gap-12', 'flexCol')">
-        <div :class="cn('gap-2', 'flexCol', 'heading4 text-cream')">
-          <h4>France</h4>
-          <h4>96'</h4>
-        </div>
+      <div :class="cn('gap-8 2xl:gap-12', 'flexCol')">
+        <!-- <div :class="cn('gap-2', 'flexCol', 'heading4 text-cream')"> -->
+        <!--   <h4>France</h4> -->
+        <!--   <h4>96'</h4> -->
+        <!-- </div> -->
 
-        <div :class="cn('w-full max-w-xl', 'mb-12', 'txt')">
-          <p>Frontend developer based in France specialized in React.js and TypeScript.</p>
+        <div :class="cn('w-full max-w-xl', 'txt')">
+          <p>Frontend developer based in France.</p>
           <p>
             Passionate about crafting modern and responsive user interfaces, I bring technical
             expertise and a creative approach to each project.

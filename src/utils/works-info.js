@@ -1,6 +1,17 @@
 export const worksInfo = [
   {
     id: 1,
+    name: 'Klay',
+    image: '/klay.jpg',
+    description:
+      'As a frontend developer, I spearheaded the end-to-end e-commerce project for Klay, spanning from crafting its visual identity to bringing the application to life. My journey began with the creation of a captivating visual identity, translating the unique artistry of pottery into a coherent visual experience. The meticulously crafted wireframe on Figma served as the foundation for the site&apos;s aesthetics and user-friendliness. The pivotal step came with the development of the application using Nuxt.js, ensuring optimal performance and seamlessly integrating advanced features, including an intuitive cart management system.',
+    date: '2024',
+    url: 'https://google.com/',
+    laguages: ['Nuxt.js', 'TypeScript'],
+    tools: ['Tailwind', 'Pinia', 'Figma', 'Git']
+  },
+  {
+    id: 2,
     name: 'Forma',
     image: '/forma.png',
     description:
@@ -11,7 +22,7 @@ export const worksInfo = [
     tools: ['Tailwind', 'Zustand', 'React-query', 'Zod', 'React-hook-form', 'Figma', 'Git']
   },
   {
-    id: 2,
+    id: 3,
     name: 'Crazee-Burger',
     image: '/crazee-burger.jpg',
     description:
@@ -24,7 +35,7 @@ export const worksInfo = [
     tools: ['Styled-components', 'Firebase', 'Jest', 'Context', 'Figma', 'Git']
   },
   {
-    id: 3,
+    id: 4,
     name: 'Workshopbya',
     image: '/workshop-by-a.png',
     description:

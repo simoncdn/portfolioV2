@@ -23,7 +23,7 @@ const linksList = [
     :class="
       cn(
         'fixed bottom-0 left-0 right-0',
-        'w-full max-w-[calc(100%-8rem)] h-24',
+        'w-full max-w-[calc(100%-8rem)] h-12 2xl:h-24',
         'm-auto',
         'flex items-center',
         'mix-blend-difference'

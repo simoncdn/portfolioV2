@@ -7,11 +7,11 @@ import { cn } from '@/utils/helper'
   <div :class="cn('boxWidth', 'gap-20', 'flexCol')">
     <SectionTitle label="Contact" />
 
-    <div :class="cn('gap-6', 'flex items-baseline')">
+    <div :class="cn('gap-6', 'flex flex-col md:flex-row items-baseline')">
       <img src="../assets/arrow-right.svg" alt="phone" />
 
       <div :class="cn('gap-8', 'flexCol')">
-        <div :class="cn('flexCol', 'text-carbon font-light text-2xl')">
+        <div :class="cn('flexCol', 'text-carbon font-light text-lg md:text-2xl')">
           <span>Discuss about a new projet ? An opportunity ?</span>
           <span>Let’s have a chat.</span>
         </div>
@@ -19,7 +19,7 @@ import { cn } from '@/utils/helper'
           @mouseover="$emit('onHover', true)"
           @mouseleave="$emit('onHover', false)"
           href="mailto:cdna.simon@gmail.com"
-          :class="cn('text-carbon font-normal text-4xl')"
+          :class="cn('text-carbon font-normal text-2xl md:text-4xl')"
           >cdna.simon@gmail.com</a
         >
       </div>
