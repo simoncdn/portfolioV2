@@ -36,7 +36,7 @@ const linksList = [
           @mouseover="$emit('onHover', true)"
           @mouseleave="$emit('onHover', false)"
           :href="link.link"
-          :class="cn('cursor-none', 'txt', 'hover:underline')"
+          :class="cn('md:cursor-none', 'txt', 'hover:underline')"
           >{{ link.name }}</a
         >
       </li>

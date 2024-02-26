@@ -58,6 +58,9 @@ const options = {
 	// Custom selectors
 	observer: true,
 	slideSelector: '.works',
+	credits: {
+		enabled: false,
+	},
 
 	// Events
 	onSlideLeave,

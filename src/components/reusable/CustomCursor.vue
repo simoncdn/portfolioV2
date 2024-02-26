@@ -12,7 +12,7 @@ defineProps({
   <div
     :class="
       cn(
-        'fixed z-30 top-0 left-0 pointer-events-none',
+        'desktop-only fixed z-30 top-0 left-0 pointer-events-none',
         'w-1.5 h-1.5',
         'bg-light-grey rounded-full',
         'translate-x-1/2 translate-y-1/2 mix-blend-difference',
@@ -30,7 +30,7 @@ defineProps({
   <div
     :class="
       cn(
-        'fixed z-30 top-0 left-0 pointer-events-none',
+        'desktop-only fixed z-30 top-0 left-0 pointer-events-none',
         'w-10 h-10',
         'bg-transparent border border-light-grey rounded-full',
         'translate-x-1/2 translate-y-1/2 mix-blend-difference',

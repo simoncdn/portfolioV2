@@ -14,12 +14,14 @@
 	background: var(--cream);
 }
 
-.fp-watermark {
-	display: none;
-}
-
 @media (max-width: 1536px) {
 	.fp-bottom {
 		height: 3rem;
+	}
+}
+
+@media (max-width: 768px) {
+	.fp-bottom {
+		display: none;
 	}
 }

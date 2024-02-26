@@ -36,7 +36,7 @@ const { x, y } = useMouse()
             @mouseover="$emit('onHover', true)"
             @mouseleave="$emit('onHover', false)"
           >
-            <a :href="work.url" :class="cn('cursor-none', 'gap-1', 'flexRow items-center', 'txt')">
+            <a :href="work.url" :class="cn('md:cursor-none', 'gap-1', 'flexRow items-center', 'txt', 'hover:underline md:hover:no-underline')">
               <span>View site</span>
               <ArrowUpRightIcon :class="cn('w-4 h-4')" />
             </a>
@@ -44,10 +44,10 @@ const { x, y } = useMouse()
             <div
               :class="
                 cn(
-                  'absolute top-0 left-0 pointer-event-none z-20 hidden',
+                  'hidden absolute top-0 left-0 pointer-event-none z-20',
                   'w-60 h-40  md:w-96 md:h-60',
                   'translate-x-1/2 translate-y-1/2',
-                  'bg-purple-200 animate-fade-in'
+                  'animate-fade-in'
                 )
               "
               :style="{
@@ -59,7 +59,7 @@ const { x, y } = useMouse()
               <img
                 :src="work.image"
                 :alt="work.name"
-                :class="cn('w-full h-full', 'object-cover', 'grayscale')"
+                :class="cn('desktop-only w-full h-full', 'object-cover', 'grayscale')"
               />
             </div>
           </div>

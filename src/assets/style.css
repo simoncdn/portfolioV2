@@ -76,6 +76,10 @@
 	.txt {
 		@apply text-xs md:text-sm xl:text-base font-light text-cream;
 	}
+
+	.desktop-only {
+		@apply hidden md:block;
+	}
 }
 
 /* CUSTOM KEYFRAMES */
@@ -88,5 +92,11 @@
 		100% {
 			opacity: 1;
 		}
+	}
+}
+
+@media screen and (max-width: 768px){
+	body {
+		cursor: default;
 	}
 }
