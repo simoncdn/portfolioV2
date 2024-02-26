@@ -30,7 +30,7 @@ const navList = Object.values(ANCHORS)
       cn(
         'fixed top-0 right-0',
         'w-1/12 max-w-16 h-screen',
-        'pb-12 2xl:pb-24',
+        'pb-32 md:pb-16 2xl:pb-24',
         'flexCol items-center justify-end',
         'mix-blend-difference'
       )

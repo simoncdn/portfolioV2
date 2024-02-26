@@ -99,4 +99,7 @@
 	body {
 		cursor: default;
 	}
+	.boxWidth {
+		padding: 5vh 8.33vw 15vh 8.33vw;
+	}
 }

@@ -20,7 +20,7 @@ const librariesList = [
 </script>
 
 <template>
-  <div :class="cn('boxWidth', 'gap-20', 'flexBetween items-end lg:items-center')">
+  <div :class="cn('boxWidth', 'gap-8 md:gap-20', 'flexBetween items-end lg:items-center')">
     <div :class="cn('hidden lg:flexCenter', 'w-6/12 h-full')">
       <div :class="cn('relative', 'w-10/12 h-fit')">
         <img
@@ -33,7 +33,7 @@ const librariesList = [
 
     <div
       :class="
-        cn('w-full lg:w-6/12 h-screen', 'gap-14 md:gap-20', 'flexCol justify-center', 'text-cream')
+        cn('w-full lg:w-6/12 h-full', 'gap-8 md:gap-20', 'flexCol lg:justify-center', 'text-cream')
       "
     >
       <SectionTitle label="About" color="var(--white)" />
@@ -51,8 +51,8 @@ const librariesList = [
           </p>
         </div>
 
-        <div :class="cn('gap-12', 'flexCol')">
-          <div :class="cn('gap-6', 'flexCol')">
+        <div :class="cn('gap-8 md:gap-12', 'flexCol')">
+          <div :class="cn('gap-4 md:gap-6', 'flexCol')">
             <h3 :class="cn('heading3 text-cream')">Languages & Frameworks</h3>
 
             <ul :class="cn('max-w-xl', 'gap-4', 'flexRow flex-wrap')">
@@ -62,7 +62,7 @@ const librariesList = [
             </ul>
           </div>
 
-          <div :class="cn('gap-6', 'flexCol')">
+          <div :class="cn('gap-4 md:gap-6', 'flexCol')">
             <h3 :class="cn('heading3 text-cream')">Libraries & Tools</h3>
             <ul :class="cn('max-w-xl', 'gap-4', 'flexRow flex-wrap')">
               <li v-for="library in librariesList" :key="library">

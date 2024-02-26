@@ -20,7 +20,7 @@ const navList = [
 
 <template>
   <div ref="heroSection" :class="cn('boxWidth', 'gap-20', 'flexBetween')">
-    <div :class="cn('z-10', 'w-6/12', 'gap-20', 'flexCol justify-center')">
+    <div :class="cn('z-10', 'w-6/12', 'gap-20', 'flexCol justify-start  md:justify-center')">
       <div :class="cn('gap-10', 'flexCol')">
         <h1
           :class="
@@ -34,7 +34,7 @@ const navList = [
           <span>Simon</span>
           <span>Cardona</span>
         </h1>
-        <p :class="cn('px-2 md:px-4', 'text-2xl font-normal text-grey')">Frontend developer</p>
+        <p :class="cn('px-2 md:px-4', 'text-2xl font-normal text-grey whitespace-nowrap')">Frontend developer</p>
       </div>
       <nav class="flex h-2/6 px-2 md:px-4">
         <ul :class="cn('gap-20', 'flex')">
@@ -63,7 +63,7 @@ const navList = [
       </nav>
     </div>
 
-    <div :class="cn('w-4/12 h-full', 'flexCenter')">
+    <div :class="cn('', 'w-4/12 h-full', 'flexCenter')">
       <img
         src="/simon-cardona.png"
         alt="hero image"
@@ -72,36 +72,3 @@ const navList = [
     </div>
   </div>
 </template>
-
-<style>
-@media (max-width: 768px) {
-  .hero-section {
-    padding-top: 70px;
-  }
-
-  .title-and-description {
-    flex-direction: column-reverse;
-    gap: 20px;
-  }
-
-  nav ul li {
-    width: fit-content;
-  }
-
-  p {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 475px) {
-  h1 {
-    font-size: 84px;
-    line-height: 0.87;
-  }
-
-  nav ul {
-    flex-direction: column;
-    gap: 60px;
-  }
-}
-</style>
