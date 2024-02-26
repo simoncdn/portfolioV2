@@ -10,7 +10,7 @@ import { worksInfo } from '@/utils/works-info'
 
       <ul :class="cn('border-t border-light-grey', 'flexCol')">
         <li
-          v-for="work in worksInfo"
+          v-for="(work, index) in worksInfo"
           :class="
             cn(
               'group relative',
@@ -26,7 +26,7 @@ import { worksInfo } from '@/utils/works-info'
           <span
             @mouseover="$emit('onHover', true)"
             @mouseleave="$emit('onHover', false)"
-            @click="$emit('moveTo', 'Work', work.index)"
+            @click="$emit('moveTo', 'Work', index + 1)"
             :class="
               cn('block w-fit', 'hover:translate-x-4 transition-all duration-300 ease-in-out')
             "
