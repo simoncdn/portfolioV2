@@ -8,7 +8,7 @@ import { worksInfo } from '@/utils/works-info'
     <div :class="cn('boxWidth', 'flexCol', 'gap-20')">
       <SectionTitle label="Work" />
 
-      <ul :class="cn(' border-light-grey', 'flexCol')">
+      <ul :class="cn('border-t border-light-grey', 'flexCol')">
         <li
           v-for="work in worksInfo"
           :class="
@@ -17,6 +17,7 @@ import { worksInfo } from '@/utils/works-info'
               'w-full',
               'border-b border-light-grey',
               'py-4 md:py-8 2xl:py-14',
+              'flexBetween items-center',
               'text-xl md:text-3xl 2xl:text-5xl text-carbon uppercase'
             )
           "
@@ -31,6 +32,10 @@ import { worksInfo } from '@/utils/works-info'
             "
           >
             {{ work.name }}
+          </span>
+
+          <span>
+            {{ work.date }}
           </span>
         </li>
       </ul>

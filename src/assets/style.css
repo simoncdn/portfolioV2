@@ -74,7 +74,7 @@
   }
 
   .txt {
-    @apply text-xs md:text-sm xl:text-base font-normal text-cream;
+    @apply text-xs md:text-sm xl:text-base font-light text-cream;
   }
 }
 
