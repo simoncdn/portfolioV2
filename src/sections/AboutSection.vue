@@ -21,21 +21,15 @@ const librariesList = [
 
 <template>
   <div :class="cn('boxWidth', 'gap-20', 'flexBetween items-end lg:items-center')">
-    <div :class="cn('hidden lg:flexCenter', 'w-6/12 h-screen')">
-      <div :class="cn('relative', 'w-8/12 h-fit')">
-        <img
-          :class="cn('w-full', 'object-cover', 'mix-blend-lighten')"
-          src="../assets/image-profil.svg"
-          alt="simon-cardona-frontend-developer"
-        />
+    <div :class="cn('hidden lg:flexCenter', 'w-6/12 h-full')">
+      <div :class="cn('relative', 'w-10/12 h-fit')">
+        <img :class="cn('w-full', 'object-cover', 'mix-blend-lighten')"
+          src="../assets/simon-cardona-frontend-developer.svg" alt="simon-cardona-frontend-developer" />
       </div>
     </div>
 
-    <div
-      :class="
-        cn('w-full lg:w-6/12 h-screen', 'gap-14 md:gap-20', 'flexCol justify-center', 'text-cream')
-      "
-    >
+    <div :class="cn('w-full lg:w-6/12 h-screen', 'gap-14 md:gap-20', 'flexCol justify-center', 'text-cream')
+      ">
       <SectionTitle label="About" color="var(--white)" />
 
       <div :class="cn('gap-8 2xl:gap-12', 'flexCol')">
