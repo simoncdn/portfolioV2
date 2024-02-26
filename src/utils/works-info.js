@@ -4,7 +4,7 @@ export const worksInfo = [
     name: 'Klay',
     image: '/klay.jpg',
     description:
-      'As a frontend developer, I spearheaded the end-to-end e-commerce project for Klay, spanning from crafting its visual identity to bringing the application to life. My journey began with the creation of a captivating visual identity, translating the unique artistry of pottery into a coherent visual experience. The meticulously crafted wireframe on Figma served as the foundation for the site&apos;s aesthetics and user-friendliness. The pivotal step came with the development of the application using Nuxt.js, ensuring optimal performance and seamlessly integrating advanced features, including an intuitive cart management system.',
+      "As a frontend developer, I spearheaded the end-to-end e-commerce project for Klay, spanning from crafting its visual identity to bringing the application to life. My journey began with the creation of a captivating visual identity, translating the unique artistry of pottery into a coherent visual experience. The meticulously crafted wireframe on Figma served as the foundation for the site's aesthetics and user-friendliness. The pivotal step came with the development of the application using Nuxt.js, ensuring optimal performance and seamlessly integrating advanced features, including an intuitive cart management system.",
     date: '2024',
     url: 'https://google.com/',
     laguages: ['Nuxt.js', 'TypeScript'],
