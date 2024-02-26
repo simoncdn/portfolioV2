@@ -19,7 +19,7 @@ import { cn } from '@/utils/helper'
           @mouseover="$emit('onHover', true)"
           @mouseleave="$emit('onHover', false)"
           href="mailto:cdna.simon@gmail.com"
-          :class="cn('text-carbon font-normal text-2xl md:text-4xl')"
+          :class="cn('cursor-none','text-carbon font-normal text-2xl md:text-4xl')"
           >cdna.simon@gmail.com</a
         >
       </div>
