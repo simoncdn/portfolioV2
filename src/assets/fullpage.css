@@ -1,0 +1,25 @@
+.fp-slidesNav.fp-bottom {
+	bottom: 0;
+}
+
+.fp-bottom {
+	display: flex;
+	height: 6rem;
+	justify-content: center;
+	align-items: center;
+	mix-blend-mode: difference;
+}
+
+.fp-slidesNav ul li a span {
+	background: var(--cream);
+}
+
+.fp-watermark {
+	display: none;
+}
+
+@media (max-width: 1536px) {
+	.fp-bottom {
+		height: 3rem;
+	}
+}
