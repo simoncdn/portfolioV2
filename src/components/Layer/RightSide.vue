@@ -1,5 +1,6 @@
 <script setup>
 import { cn } from '@/utils/helper'
+import { ANCHORS } from '@/utils/object'
 import { defineProps } from 'vue'
 
 const props = defineProps({
@@ -19,24 +20,7 @@ const getCurrentCubeColor = (link) => {
     return 'var(--cream)'
   }
 }
-const navList = [
-  {
-    id: 0,
-    link: 'Home'
-  },
-  {
-    id: 1,
-    link: 'About'
-  },
-  {
-    id: 2,
-    link: 'Work'
-  },
-  {
-    id: 3,
-    link: 'Contact'
-  }
-]
+const navList = Object.values(ANCHORS)
 </script>
 
 <template>
@@ -55,10 +39,10 @@ const navList = [
     <ul :class="cn('relative', 'gap-2 md:gap-4', 'flexCol flexCenter')">
       <li
         :class="cn('w-1 h-1 md:w-1.5 md:h-1.5', 'list-none')"
-        @click="$emit('moveTo', nav.link, 0)"
+        @click="$emit('moveTo', nav, 0)"
         v-for="nav in navList"
-        :key="nav.link"
-        :style="{ backgroundColor: getCurrentCubeColor(nav.link) }"
+        :key="nav"
+        :style="{ backgroundColor: getCurrentCubeColor(nav) }"
       ></li>
     </ul>
     <span :class="cn('w-[1px] h-1/6', 'bg-cream', 'my-4')"></span>

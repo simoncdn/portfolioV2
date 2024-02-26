@@ -1,5 +1,6 @@
 import { clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
+import { ANCHORS } from './object'
 
 export const cn = (...classes) => {
   return twMerge(clsx(...classes))
@@ -7,13 +8,13 @@ export const cn = (...classes) => {
 
 export function getCurrentTextColor(sectionAnchor) {
   switch (sectionAnchor) {
-    case 'home':
+    case ANCHORS.HOME:
       return 'var(--black)'
-    case 'about':
+    case ANCHORS.ABOUT:
       return 'var(--white)'
-    case 'work':
+    case ANCHORS.WORK:
       return 'var(--black)'
-    case 'contact':
+    case ANCHORS.CONTACT:
       return 'var(--black)'
     default:
       return 'var(--black)'
