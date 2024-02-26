@@ -13,6 +13,7 @@ const fullpage = ref(null)
 const currentAnchor = ref('')
 const currentIndex = ref(0)
 const isElementHover = ref(false)
+const isWorkLinkHover = ref(false)
 
 const licenseKey = import.meta.env.VITE_LICENSE_KEY
 const scrollHorizontallyKey = import.meta.env.VITE_SCROLL_ACTIVATION_HORIZONTALLY_KEY
@@ -76,6 +77,9 @@ function handleMoveTo(sectionName, slideNumber) {
 function onHoverElement(state) {
   isElementHover.value = state
 }
+function onHoverWorkLink(state) {
+  isWorkLinkHover.value = state
+}
 function makeActionsOnScroll() {
   const anchorFind = fullpage.value.api.getActiveSection().anchor
   if (anchorFind) {
@@ -106,8 +110,8 @@ observer.observe(body, options)
       </div>
       <div class="section">
         <Work @onHover="onHoverElement" @moveTo="handleMoveTo" />
-        <WorkTemplate v-for="work in worksInfo" :key="work.name" :work="work" :isActive="isElementHover"
-          @onHover="onHoverElement" />
+        <WorkTemplate v-for="work in worksInfo" :key="work.name" :work="work" :isWorkLinkHover="isWorkLinkHover"
+          @onHover="onHoverWorkLink" />
       </div>
       <div class="section">
         <Contact @onHover="onHoverElement" />

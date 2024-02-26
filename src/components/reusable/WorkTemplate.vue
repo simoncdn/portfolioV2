@@ -11,7 +11,7 @@ defineProps({
     type: Object,
     required: true
   },
-  isActive: Boolean
+  isWorkLinkHover: Boolean
 })
 
 const { x, y } = useMouse()
@@ -51,9 +51,9 @@ const { x, y } = useMouse()
                 )
               "
               :style="{
-                display: isActive ? 'flex' : '',
+                display: isWorkLinkHover ? 'flex' : '',
                 transform: `translate(${x - -2}px, ${y - -2}px)`,
-                animation: isActive ? 'fadeIn 0.3s linear' : ''
+                animation: isWorkLinkHover ? 'fadeIn 0.3s linear' : ''
               }"
             >
               <img
