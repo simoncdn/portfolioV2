@@ -23,7 +23,7 @@ export const worksInfo = [
   },
   {
     id: 3,
-    name: 'Crazee-Burger',
+    name: 'Crazee.B',
     image: '/crazee-burger.jpg',
     description:
       'In a world where convenience and speed reign supreme, the idea of allowing customers to place their orders online with disconcerting ease seemed not only logical but essential. This dashboard, conceived as an elegant and functional interface, invites users to a smooth and enjoyable online ordering experience, turning each menu selection into a captivating culinary adventure, accessible at their fingertips.',
