@@ -8,7 +8,7 @@ export const worksInfo = [
     date: '2024',
     url: 'https://klay-craft.netlify.app',
     laguages: ['Nuxt.js', 'TypeScript'],
-    tools: ['Tailwind', 'Pinia', 'Figma', 'Git']
+    tools: ['Tailwind', 'Pinia', 'Figma']
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ export const worksInfo = [
     date: '2023',
     url: 'https://forma.legal/',
     laguages: ['Next.js', 'TypeScript'],
-    tools: ['Tailwind', 'Zustand', 'React-query', 'Zod', 'React-hook-form', 'Figma', 'Git']
+    tools: ['Tailwind', 'Zustand', 'React-query', 'Zod', 'React-hook-form', 'Figma']
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ export const worksInfo = [
     date: '2023',
     url: 'https://crazee-burger-ki3o6okfp-simoncdn.vercel.app/',
     laguages: ['React.js'],
-    tools: ['Styled-components', 'Firebase', 'Jest', 'Context', 'Figma', 'Git']
+    tools: ['Styled-components', 'Firebase', 'Jest', 'Context', 'Figma']
   },
   {
     id: 4,
@@ -43,6 +43,6 @@ export const worksInfo = [
     date: '2022',
     url: 'https://www.workshopbya.com/',
     laguages: ['Next.js', 'TypeScript'],
-    tools: ['Tailwind', 'Sanity.io', 'Sendgrid', 'Framer-motion', 'Figma', 'Git']
+    tools: ['Tailwind', 'Sanity.io', 'Sendgrid', 'Framer-motion', 'Figma']
   }
 ]
