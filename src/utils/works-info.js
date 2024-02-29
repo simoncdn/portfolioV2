@@ -19,7 +19,7 @@ export const worksInfo = [
     description:
       'Forma stands out as an innovative and user-friendly SaaS solution, targeting legal and accounting professionals. Its mission aims to simplify exchanges and ensure efficient tracking of legal formalities, enriched by a range of additional features. Among these advantages, it offers the ability to interact with clients via a dedicated messaging system, to share, preview, and securely approve documents, and to schedule activities accompanied by useful reminders, thereby improving time management and organizational efficiency.',
     subDescription:
-      'My mission was to take charge of the development of prototypes and contribute to the full-stack development of the platform in close collaboration with the backend developer, significantly enriching my professional experience. This role provided me with a deep immersion into the process of creation and technological development, confronting me with various challenges and stimulating my ability to innovate and solve problems.',
+      "In my role, I've been entrusted with leading the development of prototypes and contributing to the full-stack development of the platform, working closely with the backend developer. This opportunity has significantly enriched my professional experience, immersing me deeply in the process of creation and technological development, and presenting various challenges that have stimulated my ability to innovate and solve problems.",
     date: '2023',
     url: 'https://forma.legal/',
     laguages: ['Next.js', 'TypeScript'],
