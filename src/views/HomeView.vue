@@ -125,7 +125,7 @@ observer.observe(body, options)
         <Work @onHover="onHoverElement" @moveTo="handleMoveTo" />
         <WorkTemplate
           v-for="work in worksInfo"
-          :key="work.name"
+          :key="work.id"
           :work="work"
           :isWorkLinkHover="isWorkLinkHover"
           @onHover="onHoverWorkLink"

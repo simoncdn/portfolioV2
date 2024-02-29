@@ -7,7 +7,7 @@ import { useRouter } from 'vue-router'
 const isElementHover = ref(false)
 const router = useRouter()
 
-const handleBackHome = () => {
+function handleBackHome() {
   router.push('/')
 }
 function onHoverElement(state) {

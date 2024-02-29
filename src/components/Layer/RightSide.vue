@@ -13,14 +13,16 @@ const props = defineProps({
     required: true
   }
 })
-const getCurrentCubeColor = (link) => {
+
+const navList = Object.values(ANCHORS)
+
+function getCurrentCubeColor(link) {
   if (props.currentAnchor.includes(link)) {
     return 'var(--light-carbon)'
   } else {
     return 'var(--cream)'
   }
 }
-const navList = Object.values(ANCHORS)
 </script>
 
 <template>

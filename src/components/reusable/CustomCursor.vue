@@ -2,10 +2,11 @@
 import { cn } from '@/utils/helper'
 import { useMouse } from '@vueuse/core'
 
-const { x, y } = useMouse()
 defineProps({
   isActive: Boolean
 })
+
+const { x, y } = useMouse()
 </script>
 
 <template>

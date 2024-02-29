@@ -4,7 +4,6 @@ import Badge from '@/components/reusable/Badge.vue'
 import { cn } from '@/utils/helper'
 
 const languagesList = ['JavaScript', 'TypeScript', 'React.js', 'Next.js', 'Vue.js', 'Nuxt.js']
-
 const librariesList = [
   'Tailwind',
   'Styled-Component',

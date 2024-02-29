@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { cn } from '@/utils/helper'
 import { defineProps } from 'vue'
 
 defineProps({
@@ -17,20 +18,7 @@ defineProps({
 </script>
 
 <template>
-  <button @click="$emit('onClick')" class="button">
+  <button @click="$emit('onClick')">
     <slot></slot>
   </button>
 </template>
-
-<style scoped>
-.button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 100px;
-  width: fit-content;
-  border: none;
-  font-size: 24px;
-  font-weight: 700;
-}
-</style>
