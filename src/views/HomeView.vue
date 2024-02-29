@@ -63,17 +63,9 @@ const options = {
   },
 
   // Events
-  onSlideLeave,
   onLeave
 }
 
-function onSlideLeave(section, _origin, destination) {
-  if (destination.index === 0) {
-    currentAnchor.value = section.anchor
-  } else if (destination.index > 0) {
-    currentAnchor.value = `${section.anchor} / ${destination.anchor}`
-  }
-}
 function handleMoveTo(sectionName, slideNumber) {
   return fullpage.value.api.moveTo(sectionName, slideNumber)
 }
@@ -89,14 +81,8 @@ function makeActionsOnScroll() {
     currentAnchor.value = anchorFind
   }
 }
-function onLeave(origin, destination) {
-  if (origin.anchor === ANCHORS.CONTACT) {
-    const lastWorkIndex = worksInfo.length - 1
-    const lastWork = worksInfo[lastWorkIndex]
-
-    currentAnchor.value = `${ANCHORS.WORK} / ${lastWork.name}`
-    currentIndex.value = destination.index
-  } else if (destination.anchor) {
+function onLeave(_origin, destination) {
+  if (destination.anchor) {
     currentAnchor.value = destination.anchor
     currentIndex.value = destination.index
   }
