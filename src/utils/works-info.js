@@ -4,7 +4,9 @@ export const worksInfo = [
     name: 'Klay',
     image: '/klay.jpg',
     description:
-      "As a frontend developer, I spearheaded the end-to-end e-commerce project for Klay, spanning from crafting its visual identity to bringing the application to life. My journey began with the creation of a captivating visual identity, translating the unique artistry of pottery into a coherent visual experience. The meticulously crafted wireframe on Figma served as the foundation for the site's aesthetics and user-friendliness. The pivotal step came with the development of the application using Nuxt.js, ensuring optimal performance and seamlessly integrating advanced features, including an intuitive cart management system.",
+      'Klay merges the craft of pottery with a modern touch, offering unique creations and interactive workshops to immerse enthusiasts in the art of ceramics. Their goal is to make this art accessible to everyone through an online sales platform and a workshop sign-up system, akin to a newsletter, enriching the cultural experience of their customers.',
+    subDescription:
+      'My mission was to develop an e-commerce site for Klay, designed to showcase its products and facilitate workshop sign-ups through email registration. This project aimed to blend appealing aesthetics with intuitive navigation, thereby creating a user interface that highlights the art of pottery and encourages user engagement through a seamless and enriching online experience.',
     date: '2024',
     url: 'https://klay-craft.netlify.app',
     laguages: ['Nuxt.js', 'TypeScript'],
@@ -15,7 +17,9 @@ export const worksInfo = [
     name: 'Forma',
     image: '/forma.png',
     description:
-      'Forma is an elegantly designed SaaS solution for legal and accounting professionals. This innovative platform facilitates the creation and monitoring of administrative formalities, while offering a wide range of additional features. Among these are the ability to interact with clients through an messaging system, securely exchange and validate documents, as well as schedule tasks with convenient reminders, thus optimizing time management and organizational efficiency.',
+      'Forma stands out as an innovative and user-friendly SaaS solution, targeting legal and accounting professionals. Its mission aims to simplify exchanges and ensure efficient tracking of legal formalities, enriched by a range of additional features. Among these advantages, it offers the ability to interact with clients via a dedicated messaging system, to share, preview, and securely approve documents, and to schedule activities accompanied by useful reminders, thereby improving time management and organizational efficiency.',
+    subDescription:
+      'My mission was to take charge of the development of prototypes and contribute to the full-stack development of the platform in close collaboration with the backend developer, significantly enriching my professional experience. This role provided me with a deep immersion into the process of creation and technological development, confronting me with various challenges and stimulating my ability to innovate and solve problems.',
     date: '2023',
     url: 'https://forma.legal/',
     laguages: ['Next.js', 'TypeScript'],
@@ -39,7 +43,9 @@ export const worksInfo = [
     name: 'Workshopbya',
     image: '/workshop-by-a.png',
     description:
-      'As a community manager, Workshopbya envisioned a showcase website where clients could not only discover her unique and dynamic identity but also delve into her diverse range of services. This site was also intended to be an interactive space, highlighting an engaging blog that reflected her expertise and passion, offering a window into her creative and inspiring world. A place where professionalism and personality meet, inviting visitors to immerse themselves in the fascinating universe of Workshopbya.',
+      'As the Community Manager, Workshopbya aimed to create a showcase website that would allow clients to get acquainted with its dynamic and unique identity, while also offering them the chance to explore a wide range of services. The goal was to develop an interactive space, enhanced by an exciting blog that would highlight its expertise and enthusiasm, thus providing a glimpse into its creative and stimulating universe.',
+    subDescription:
+      'As the person responsible for creating the prototype and developing the web for Workshopbya, I had to encapsulate its unique essence by designing an intuitive user interface that was aesthetically pleasing, enriched with interactive elements and a responsive design for full accessibility across various devices. This role allowed me to refine my web development and UI/UX design skills, emphasizing the importance of storytelling to effectively engage visitors.',
     date: '2022',
     url: 'https://www.workshopbya.com/',
     laguages: ['Next.js', 'TypeScript'],

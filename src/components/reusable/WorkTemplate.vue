@@ -23,11 +23,11 @@ const { x, y } = useMouse()
       <SectionTitle :label="work.name" color="var(--cream)" />
 
       <div :class="cn('w-full', 'gap-8 md:gap-48', 'flex flex-col md:flex-row')">
-        <div :class="cn('w-full md:w-6/12', 'gap-4 md:gap-6', 'flexCol')">
+        <div :class="cn('w-full md:w-9/12 2xl:w-6/12', 'gap-4 md:gap-6', 'flexCol')">
           <h4 :class="cn('heading4 text-cream')">{{ work.date }}</h4>
 
-          <p :class="cn('max-w-2xl', 'txt')">{{ work.description }}</p>
-          <p v-if="work.subDescription" :class="cn('desktop-only max-w-2xl', 'txt font-bold')">
+          <p :class="cn('txt')">{{ work.description }}</p>
+          <p v-if="work.subDescription" :class="cn('desktop-only', 'txt font-bold')">
             {{ work.subDescription }}
           </p>
 
@@ -36,7 +36,18 @@ const { x, y } = useMouse()
             @mouseover="$emit('onHover', true)"
             @mouseleave="$emit('onHover', false)"
           >
-            <a :href="work.url" :class="cn('md:cursor-none', 'gap-1', 'flexRow items-center', 'txt', 'hover:underline md:hover:no-underline')">
+            <a
+              :href="work.url"
+              :class="
+                cn(
+                  'md:cursor-none',
+                  'gap-1',
+                  'flexRow items-center',
+                  'txt',
+                  'hover:underline md:hover:no-underline'
+                )
+              "
+            >
               <span>View site</span>
               <ArrowUpRightIcon :class="cn('w-4 h-4')" />
             </a>
@@ -44,9 +55,9 @@ const { x, y } = useMouse()
             <div
               :class="
                 cn(
-                  'hidden absolute top-0 left-0 pointer-event-none z-20',
+                  'hidden absolute bottom-full left-0 pointer-event-none z-20',
                   'w-60 h-40  md:w-96 md:h-60',
-                  'translate-x-1/2 translate-y-1/2',
+                  'translate-x-1/2 -translate-y-1/2',
                   'animate-fade-in'
                 )
               "

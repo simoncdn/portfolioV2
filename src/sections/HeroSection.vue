@@ -34,7 +34,9 @@ const navList = [
           <span>Simon</span>
           <span>Cardona</span>
         </h1>
-        <p :class="cn('px-2 md:px-4', 'text-2xl font-normal text-grey whitespace-nowrap')">Frontend developer</p>
+        <p :class="cn('px-2 md:px-4', 'text-2xl font-normal text-grey whitespace-nowrap')">
+          Frontend developer
+        </p>
       </div>
       <nav class="flex h-2/6 px-2 md:px-4">
         <ul :class="cn('gap-20', 'flex')">
