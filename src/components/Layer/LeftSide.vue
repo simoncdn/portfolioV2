@@ -17,7 +17,7 @@ import { cn } from '@/utils/helper'
   >
     <span :class="cn('w-[1px] h-2/6', 'bg-cream')"></span>
 
-    <p :class="cn('txt', 'rotate-180', '[writing-mode:vertical-lr]')">Portfolio 2023</p>
+    <p :class="cn('txt', 'rotate-180', '[writing-mode:vertical-lr]')">Portfolio 2024</p>
 
     <span :class="cn('w-[1px] h-2/6', 'bg-cream')"></span>
   </div>
